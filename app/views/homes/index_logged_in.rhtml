@@ -1,0 +1,64 @@
+<div id="home">
+
+  <div id="news">
+    <h2>News</h2>
+    <p>Here we are, da.vin.ci has finally been launched.  The best photographical innovation since the invention of the camera.  We really hope you like it.
+    Please <%= link_to 'send us feedback', contact_us_path %> and let us know how we can improve.  Creating an easy way to move your photos from other sites like flickr, zoomr and smugmug is top of our to-do list, but don't worry, we will also be building tools to move the other way too!
+    Just as long as you find the site that's best for you.</p>
+  </div>
+
+  <div id="welcome">
+    <p>Hi <%= @current_user.login %>, welcome back!  We've missed you.  Some more really twee text will go here later</p>
+    <p><%= link_to 'Show full profile', user_path(current_user) if logged_in? %></p>
+    <% if not @current_user.trial_over? %>
+      <p>You have <%= @current_user.trial_days_remaining %> days remaining of your free trial. We really hope you liked our site.  If you want to continue, then <%= link_to 'sign up for a year here.', new_payment_path %></p>
+    <% elsif @current_user.paid? %>
+      <p>You have <%= @current_user.paid_days_remaining %> days remaining until renewal.</p>
+    <% end %>
+    <p>Why not <%= link_to 'invite', new_user_invitation_path(@current_user) %> your friends to use da.vin.ci.  For every 10 you invitations which result in a new registration, you get a year's free membership!</p>
+  </div>
+
+  <div id="bio">
+    <h2>Your Bio - <%= link_to 'edit', edit_user_path(@current_user) %></h2>
+    <p>
+    <%= image_tag(user_album_photo_path(:user_id => @current_user, :album_id => @current_user.photo.album,
+                                        :id => @current_user.photo,
+                                        :size => 'thumbnail')+'.jpg', :align => 'texttop') unless @current_user.photo.blank? %>
+    <%= image_tag('no-image-thumbnail.jpg') if @current_user.photo.blank? %>
+    <% unless @current_user.bio.blank? %>
+      <%= @current_user.bio %>
+    <% else %>
+      You haven't written anything about yourself yet. Why not <%= link_to 'write something', edit_user_path(@current_user) %> now?
+    <% end %>
+    </p>
+  </div>
+
+  <div id="featured_albums">
+    <h2>Featured Albums</h2>
+    <%= render :partial => @current_user.albums.featured %>
+  </div>
+
+  <div id="friends">
+    <h2>Friends and Family</h2>
+    Friends: <%= render :partial => 'friendships/friend', :collection => @current_user.friends %><br/>
+    Family: <%= render :partial => 'friendships/friend', :collection => @current_user.family %>
+  </div>
+
+  <div id="user_groups">
+    <h2>Photo Communities</h2>
+    <% @current_user.user_groups.each do |user_group| %>
+      <span class="user_group"><%= link_to user_group.name, user_group_path(user_group) %></span>
+      <%= '&nbsp;|&nbsp;' unless user_group == @current_user.user_groups.last %>
+    <% end %>
+  </div>
+
+  <div id="tags">
+    <h2>Tags</h2>
+    <%= render :partial => @current_user.tags %>
+  </div>
+
+  <div id="my_albums">
+    <h2>Albums</h2>
+    <%= render :partial => @current_user.albums %>
+  </div>
+</div>

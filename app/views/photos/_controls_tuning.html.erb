@@ -1,0 +1,61 @@
+<div id="quantization">
+  <h3>Quantization</h3>
+  <div>
+    <p>Colors</p>
+    <div id="quantization_track" class="slider">
+      <div id="quantization_handle"></div>
+    </div>
+    <p>Colorspace</p>
+    <%= select_tag 'colorspace', options_for_select(['GREY','RGB','YUV']),
+      :onchange => "$('quantization_colorspace').value = this.value;" %>
+  </div>
+</div>
+<script>
+// <![CDATA[
+  new Control.Slider('quantization_handle','quantization_track',{range:$R(0,512),
+    onChange:function(v){
+      $('quantize_colors').value = v;
+      updatePreview('<%= user.to_param %>', '<%= album.to_param %>', '<%= photo.to_param %>');
+      return false;}});
+// ]]>
+</script>
+<div id="modulate">
+  <h3>Modulate</h3>
+  <div>
+    <p>Brightness</p>
+    <div id="modulate_brightness_track" class="slider">
+      <div id="modulate_brightness_handle"></div>
+    </div>
+    <p>Saturation</p>
+    <div id="modulate_saturation_track" class="slider">
+      <div id="modulate_saturation_handle"></div>
+    </div>
+    <p>Hue</p>
+    <div id="modulate_hue_track" class="slider">
+      <div id="modulate_hue_handle"></div>
+    </div>
+  </div>
+</div>
+<script>
+// <![CDATA[
+  new Control.Slider('modulate_brightness_handle','modulate_brightness_track',{range:$R(-10,10),
+    onChange:function(v){
+      $('modulate_brightness').value = v;
+      updatePreview('<%= user.to_param %>', '<%= album.to_param %>', '<%= photo.to_param %>');
+      return false;}});
+// ]]>
+// <![CDATA[
+  new Control.Slider('modulate_saturation_handle','modulate_saturation_track',{range:$R(-10, 10),
+    onChange:function(v) {
+      $('modulate_saturation').value = v;
+      updatePreview('<%= user.to_param %>', '<%= album.to_param %>', '<%= photo.to_param %>');
+      return false;}});
+// ]]>
+// <![CDATA[
+  new Control.Slider('modulate_hue_handle','modulate_hue_track',{range:$R(-10,10),
+    onChange:function(v){
+      $('modulate_hue').value = v;
+      updatePreview('<%= user.to_param %>', '<%= album.to_param %>', '<%= photo.to_param %>');
+      return false;}});
+// ]]>
+</script>

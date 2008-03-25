@@ -1,0 +1,9 @@
+<div class="yui-g">
+  <% form_tag order_session_path do %>
+    <fieldset>
+      <label>Email<br/><%= text_field_tag :email %></label><br/>
+      <label>Password<br/><%= password_field_tag :password %></label>
+    </fieldset><br/>
+    <%= submit_tag :login %> or <%= link_to 'register for free', new_order_user_path %>
+  <% end %>
+</div>

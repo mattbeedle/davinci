@@ -1,0 +1,10 @@
+<div class="user_group">
+  <%= link_to(image_tag(user_album_photo_path(:user_id => user_group.photos.first.album.user,
+                                              :album_id => user_group.photos.first.album,
+                                              :id => user_group.photos.first,
+                                              :size => 'thumbnail')+'.jpg'),
+                                              user_group_path(user_group)) unless user_group.photos.blank? %>
+  <%= link_to(image_tag('no-image-thumbnail.jpg'), user_group_path(user_group)) if user_group.photos.blank? %>
+  <br/>
+  <%= link_to user_group.name, user_group_path(user_group) %>
+</div>

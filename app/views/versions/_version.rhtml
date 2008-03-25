@@ -1,0 +1,10 @@
+<div class="photo">
+  <%= link_to image_tag(user_album_photo_version_path(version.photo.album.user,
+                                                      version.photo.album,
+                                                      version.photo, version)+'.jpg'),
+                                                    user_album_photo_version_path(version.photo.album.user,
+                                                                                  version.photo.album,
+                                                                                  version.photo,
+                                                                                  version),
+                                                                                  :method => :put %>
+</div>

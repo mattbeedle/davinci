@@ -1,0 +1,11 @@
+<div class="yui-g">
+  <div id="memberships">
+    <%= will_paginate @memberships %>
+    <% @memberships.each do |member| %>
+      <div class="member">
+        <%= link_to member.login, user_path(member) %>
+      </div>
+    <% end %>
+    <%= will_paginate @memberships %>
+  </div>
+</div>

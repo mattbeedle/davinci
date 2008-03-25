@@ -1,0 +1,8 @@
+<div class="yui-g">
+  <% form_tag add_album_user_group_path(@user_group), :method => :put do %>
+    <fieldset>
+      <label>Album<br/><%= select :album, nil, @albums.map { |album| [album.name, album.id] } %></label>
+    </fieldset><br/>
+    <%= submit_tag :add %>
+  <% end %>
+</div>

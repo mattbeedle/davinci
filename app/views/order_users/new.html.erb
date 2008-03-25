@@ -1,0 +1,13 @@
+<div class="yui-g">
+  <%= error_messages_for :order_user %>
+  <% form_for(:order_user, @order_user, :url => order_users_path) do |f| %>
+    <fieldset>
+      <label>Username<br/><%= f.text_field :username %></label><br/>
+      <label>Email<br/><%= f.text_field :email %></label><br/>
+      <label>Email confirm<br/><%= f.text_field :email_confirmation %></label><br/>
+      <label>Password<br/><%= f.password_field :password %></label><br/>
+      <label>Password confirm<br/><%= f.password_field :password_confirmation %></label>
+    </fieldset><br/>
+    <%= submit_tag :register %>
+  <% end %>
+</div>

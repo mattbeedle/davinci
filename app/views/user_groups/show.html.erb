@@ -1,0 +1,58 @@
+<div class="yui-g">
+  <div id="user_group">
+    <h1><%= @user_group.name %></h1>
+    <% if @user_group.public? and ((logged_in? and not @user_group.is_member?(current_user)) or not logged_in?) %>
+      <p><%= link_to 'join this group', new_user_group_membership_path(@user_group) %></p>
+    <% end %>
+    <% if @user_group.protected? and ((logged_in? and not @user_group.is_member?(current_user)) or not logged_in?) %>
+      <p><%= link_to 'request membership to this group', new_user_group_membership_path(@user_group) %></p>
+    <% end %>
+    <% if logged_in? and @user_group.is_approved_member?(current_user) %>
+      <p>You are a member of this group</p>
+    <% end %>
+    <% if logged_in? and @user_group.is_admin?(current_user) %>
+      <p><%= link_to 'administer members of this group', admin_user_group_memberships_path(@user_group) %></p>
+    <% end %>
+    <% if logged_in? and @user_group.is_member?(current_user) and current_user.has_relations? %>
+      <p><%= link_to 'invite users', invite_user_group_path(@user_group) %></p>
+    <% end %>
+    <% if logged_in? and @user_group.is_member?(current_user) %>
+      <p><%= link_to 'add album', add_album_form_user_group_path(@user_group) %></p>
+    <% end %>
+    <div id="admins">
+      <h2>Admins</h2>
+      <ul>
+        <%= render :partial => 'member', :collection => @user_group.admins %>
+      </ul>
+    </div>
+    <div id="members">
+      <h2>Members</h2>
+      <%= link_to @user_group.approved_members.length, user_group_memberships_path(@user_group) %>
+    </div>
+    <div id="photos">
+      <h2>Latest Photos</h2>
+      <% @photos.each do |photo| %>
+        <div class="photo">
+          <%= link_to image_tag(user_album_photo_path(:user_id => photo.album.user, :album_id => photo.album, :id => photo,
+            :size => 'thumbnail')+'.jpg'), user_album_photo_path(photo.album.user, photo.album, photo) %>
+        </div>
+      <% end %>
+    </div>
+    <div id="albums">
+      <h2>Latest Albums</h2>
+      <% @albums.each do |album| %>
+        <div class="album">
+          <%= link_to image_tag(user_album_photo_path(:user_id => album.user, :album_id => album,
+                                                      :id => album.featured_photo, :size => 'thumbnail')+'.jpg'),
+                                                    user_album_path(album.user, album) %>
+        </div>
+      <% end %>
+    </div>
+    <div id="tags">
+      <h2>Tags</h2>
+      <% tag_cloud @tag_counts, %w(css1 css2 css3 css4) do |tag, css_class| %>
+        <span class="<%= css_class %>"><%= link_to tag.name, tag_path(tag) %></span>
+      <% end %>
+    </div>
+  </div>
+</div>

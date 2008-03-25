@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: WillPaginate::Finder::ClassMethods</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">WillPaginate::Finder::ClassMethods</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/vendor/plugins/will_paginate/lib/will_paginate/finder_rb.html">
+                vendor/plugins/will_paginate/lib/will_paginate/finder.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h1>Paginating finders for ActiveRecord models</h1>
+<p>
+<a href="../../WillPaginate.html">WillPaginate</a> doesn&#8216;t really add
+extra methods to your ActiveRecord models (except <tt>per_page</tt> unless
+it&#8216;s already available). It simply intercepts the calls to paginating
+finders such as <tt>paginate</tt>, <tt>paginate_by_user_id</tt> (and so on)
+and translates them to ordinary finders: <tt>find</tt>,
+<tt>find_by_user_id</tt>, etc. It does so with some method_missing magic,
+but you don&#8216;t need to care for that. You simply use paginating
+finders same way you used ordinary ones. You only need to tell them what
+page you want in options.
+</p>
+<pre>
+  @topics = Topic.paginate :all, :page =&gt; params[:page]
+</pre>
+<p>
+In paginating finders, &quot;all&quot; is implicit. No sense in paginating
+a single record, right? So:
+</p>
+<pre>
+  Post.paginate                  =&gt; Post.find :all
+  Post.paginate_all_by_something =&gt; Post.find_all_by_something
+  Post.paginate_by_something     =&gt; Post.find_all_by_something
+</pre>
+<p>
+Knowing that, the above example can be written simply as:
+</p>
+<pre>
+  @topics = Topic.paginate :page =&gt; params[:page]
+</pre>
+<p>
+Don&#8216;t forget to pass the <tt>page</tt> parameter! Without it,
+paginating finders will raise an error.
+</p>
+<h2>Options</h2>
+<p>
+Options for paginating finders are:
+</p>
+<pre>
+  page           REQUIRED, but defaults to 1 if false or nil
+  per_page       (default is read from the model, which is 30 if not overridden)
+  total entries  not needed unless you want to count the records yourself somehow
+  count          hash of options that are used only for the call to count
+</pre>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000013">method_missing_with_paginate</a>&nbsp;&nbsp;
+      <a href="#M000011">paginate_by_sql</a>&nbsp;&nbsp;
+      <a href="#M000012">respond_to?</a>&nbsp;&nbsp;
+      <a href="#M000014">wp_count!</a>&nbsp;&nbsp;
+      <a href="#M000015">wp_parse_options!</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000011" class="method-detail">
+        <a name="M000011"></a>
+
+        <div class="method-heading">
+          <a href="#M000011" class="method-signature">
+          <span class="method-name">paginate_by_sql</span><span class="method-args">(sql, options)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+This methods wraps <tt>find_by_sql</tt> by simply adding LIMIT and OFFSET
+to your SQL string based on the params otherwise used by paginating finds:
+<tt>page</tt> and <tt>per_page</tt>.
+</p>
+<p>
+Example:
+</p>
+<pre>
+  @developers = Developer.paginate_by_sql ['select * from developers where salary &gt; ?', 80000],
+                          :page =&gt; params[:page], :per_page =&gt; 3
+</pre>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000011-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000011-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/will_paginate/lib/will_paginate/finder.rb, line 58</span>
+58:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">paginate_by_sql</span>(<span class="ruby-identifier">sql</span>, <span class="ruby-identifier">options</span>)
+59:         <span class="ruby-identifier">options</span>, <span class="ruby-identifier">page</span>, <span class="ruby-identifier">per_page</span> = <span class="ruby-identifier">wp_parse_options!</span>(<span class="ruby-identifier">options</span>)
+60: 
+61:         <span class="ruby-constant">WillPaginate</span><span class="ruby-operator">::</span><span class="ruby-constant">Collection</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">page</span>, <span class="ruby-identifier">per_page</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">pager</span><span class="ruby-operator">|</span>
+62:           <span class="ruby-identifier">query</span> = <span class="ruby-identifier">sanitize_sql</span>(<span class="ruby-identifier">sql</span>)
+63:           <span class="ruby-identifier">count_query</span> = <span class="ruby-node">&quot;SELECT COUNT(*) FROM (#{query}) AS count_table&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:total_entries</span>]
+64:           <span class="ruby-identifier">options</span>.<span class="ruby-identifier">update</span> <span class="ruby-identifier">:offset</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">pager</span>.<span class="ruby-identifier">offset</span>, <span class="ruby-identifier">:limit</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">pager</span>.<span class="ruby-identifier">per_page</span>
+65:           
+66:           <span class="ruby-identifier">add_limit!</span> <span class="ruby-identifier">query</span>, <span class="ruby-identifier">options</span>
+67:           <span class="ruby-identifier">pager</span>.<span class="ruby-identifier">replace</span> <span class="ruby-identifier">find_by_sql</span>(<span class="ruby-identifier">query</span>)
+68:           
+69:           <span class="ruby-identifier">pager</span>.<span class="ruby-identifier">total_entries</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:total_entries</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">count_by_sql</span>(<span class="ruby-identifier">count_query</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">pager</span>.<span class="ruby-identifier">total_entries</span>
+70:         <span class="ruby-keyword kw">end</span>
+71:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000012" class="method-detail">
+        <a name="M000012"></a>
+
+        <div class="method-heading">
+          <a href="#M000012" class="method-signature">
+          <span class="method-name">respond_to?</span><span class="method-args">(method, include_priv = false)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000012-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000012-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/will_paginate/lib/will_paginate/finder.rb, line 73</span>
+73:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">include_priv</span> = <span class="ruby-keyword kw">false</span>)
+74:         <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">method</span>.<span class="ruby-identifier">to_sym</span>
+75:         <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:paginate</span>, <span class="ruby-identifier">:paginate_by_sql</span>
+76:           <span class="ruby-keyword kw">true</span>
+77:         <span class="ruby-keyword kw">else</span>
+78:           <span class="ruby-keyword kw">super</span>(<span class="ruby-identifier">method</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-regexp re">/^paginate/</span>, <span class="ruby-value str">'find'</span>), <span class="ruby-identifier">include_priv</span>)
+79:         <span class="ruby-keyword kw">end</span>
+80:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Protected Instance methods</h3>
+
+      <div id="method-M000013" class="method-detail">
+        <a name="M000013"></a>
+
+        <div class="method-heading">
+          <a href="#M000013" class="method-signature">
+          <span class="method-name">method_missing_with_paginate</span><span class="method-args">(method, *args, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000013-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000013-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/will_paginate/lib/will_paginate/finder.rb, line 84</span>
+ 84:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">method_missing_with_paginate</span>(<span class="ruby-identifier">method</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+ 85:         <span class="ruby-comment cmt"># did somebody tried to paginate? if not, let them be</span>
+ 86:         <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">method</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">index</span>(<span class="ruby-value str">'paginate'</span>) <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+ 87:           <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">method_missing_without_paginate</span>(<span class="ruby-identifier">method</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>) 
+ 88:         <span class="ruby-keyword kw">end</span>
+ 89: 
+ 90:         <span class="ruby-identifier">options</span>, <span class="ruby-identifier">page</span>, <span class="ruby-identifier">per_page</span>, <span class="ruby-identifier">total_entries</span> = <span class="ruby-identifier">wp_parse_options!</span>(<span class="ruby-identifier">args</span>.<span class="ruby-identifier">pop</span>)
+ 91:         <span class="ruby-comment cmt"># an array of IDs may have been given:</span>
+ 92:         <span class="ruby-identifier">total_entries</span> <span class="ruby-operator">||=</span> (<span class="ruby-constant">Array</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">first</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">size</span>)
+ 93:         
+ 94:         <span class="ruby-comment cmt"># paginate finders are really just find_* with limit and offset</span>
+ 95:         <span class="ruby-identifier">finder</span> = <span class="ruby-identifier">method</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">sub</span> <span class="ruby-regexp re">/^paginate/</span>, <span class="ruby-value str">'find'</span>
+ 96: 
+ 97:         <span class="ruby-comment cmt"># :all is implicit</span>
+ 98:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">finder</span> <span class="ruby-operator">==</span> <span class="ruby-value str">'find'</span>
+ 99:           <span class="ruby-identifier">args</span>.<span class="ruby-identifier">unshift</span>(<span class="ruby-identifier">:all</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">empty?</span>
+100:         <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">finder</span>.<span class="ruby-identifier">index</span>(<span class="ruby-value str">'find_by_'</span>) <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+101:           <span class="ruby-identifier">finder</span>.<span class="ruby-identifier">sub!</span> <span class="ruby-regexp re">/^find/</span>, <span class="ruby-value str">'find_all'</span>
+102:         <span class="ruby-keyword kw">end</span>
+103: 
+104:         <span class="ruby-constant">WillPaginate</span><span class="ruby-operator">::</span><span class="ruby-constant">Collection</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">page</span>, <span class="ruby-identifier">per_page</span>, <span class="ruby-identifier">total_entries</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">pager</span><span class="ruby-operator">|</span>
+105:           <span class="ruby-identifier">args</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">except</span>(<span class="ruby-identifier">:count</span>).<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">:offset</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">pager</span>.<span class="ruby-identifier">offset</span>, <span class="ruby-identifier">:limit</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">pager</span>.<span class="ruby-identifier">per_page</span>)
+106:           <span class="ruby-identifier">pager</span>.<span class="ruby-identifier">replace</span> <span class="ruby-identifier">send</span>(<span class="ruby-identifier">finder</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+107:           
+108:           <span class="ruby-comment cmt"># magic counting for user convenience:</span>
+109:           <span class="ruby-identifier">pager</span>.<span class="ruby-identifier">total_entries</span> = <span class="ruby-identifier">wp_count!</span>(<span class="ruby-identifier">options</span>, <span class="ruby-identifier">args</span>, <span class="ruby-identifier">finder</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">pager</span>.<span class="ruby-identifier">total_entries</span>
+110:         <span class="ruby-keyword kw">end</span>
+111:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000014" class="method-detail">
+        <a name="M000014"></a>
+
+        <div class="method-heading">
+          <a href="#M000014" class="method-signature">
+          <span class="method-name">wp_count!</span><span class="method-args">(options, args, finder)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000014-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000014-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/will_paginate/lib/will_paginate/finder.rb, line 113</span>
+113:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">wp_count!</span>(<span class="ruby-identifier">options</span>, <span class="ruby-identifier">args</span>, <span class="ruby-identifier">finder</span>)
+114:         <span class="ruby-identifier">excludees</span> = [<span class="ruby-identifier">:count</span>, <span class="ruby-identifier">:order</span>, <span class="ruby-identifier">:limit</span>, <span class="ruby-identifier">:offset</span>]
+115:         <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:select</span>] <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:select</span>] <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/^\s*DISTINCT/i</span>
+116:           <span class="ruby-identifier">excludees</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">:select</span> <span class="ruby-comment cmt"># only exclude the select param if it doesn't begin with DISTINCT</span>
+117:         <span class="ruby-keyword kw">end</span>
+118:         <span class="ruby-comment cmt"># count expects (almost) the same options as find</span>
+119:         <span class="ruby-identifier">count_options</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">except</span> <span class="ruby-operator">*</span><span class="ruby-identifier">excludees</span>
+120: 
+121:         <span class="ruby-comment cmt"># merge the hash found in :count</span>
+122:         <span class="ruby-comment cmt"># this allows you to specify :select, :order, or anything else just for the count query</span>
+123:         <span class="ruby-identifier">count_options</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:count</span>) <span class="ruby-operator">||</span> {}) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">key?</span> <span class="ruby-identifier">:count</span>
+124: 
+125:         <span class="ruby-comment cmt"># we may have to scope ...</span>
+126:         <span class="ruby-identifier">counter</span> = <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span> { <span class="ruby-identifier">count</span>(<span class="ruby-identifier">count_options</span>) }
+127: 
+128:         <span class="ruby-comment cmt"># we may be in a model or an association proxy!</span>
+129:         <span class="ruby-identifier">klass</span> = (<span class="ruby-ivar">@owner</span> <span class="ruby-keyword kw">and</span> <span class="ruby-ivar">@reflection</span>) <span class="ruby-operator">?</span> <span class="ruby-ivar">@reflection</span>.<span class="ruby-identifier">klass</span> <span class="ruby-operator">:</span> <span class="ruby-keyword kw">self</span>
+130: 
+131:         <span class="ruby-identifier">count</span> = <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">finder</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/^find_/</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">scoper</span> = <span class="ruby-identifier">finder</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-regexp re">/^find_/</span>, <span class="ruby-value str">'with_'</span>))
+132:                   <span class="ruby-comment cmt"># scope_out adds a 'with_finder' method which acts like with_scope, if it's present</span>
+133:                   <span class="ruby-comment cmt"># then execute the count with the scoping provided by the with_finder  </span>
+134:                   <span class="ruby-identifier">send</span>(<span class="ruby-identifier">scoper</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">counter</span>)
+135:                 <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">conditions</span> = <span class="ruby-identifier">wp_extract_finder_conditions</span>(<span class="ruby-identifier">finder</span>, <span class="ruby-identifier">args</span>)
+136:                   <span class="ruby-comment cmt"># extracted the conditions from calls like &quot;paginate_by_foo_and_bar&quot;</span>
+137:                   <span class="ruby-identifier">with_scope</span>(<span class="ruby-identifier">:find</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">conditions</span> }, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">counter</span>)
+138:                 <span class="ruby-keyword kw">else</span>
+139:                   <span class="ruby-identifier">counter</span>.<span class="ruby-identifier">call</span>
+140:                 <span class="ruby-keyword kw">end</span>
+141: 
+142:         <span class="ruby-identifier">count</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">:length</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">count</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">count</span>
+143:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000015" class="method-detail">
+        <a name="M000015"></a>
+
+        <div class="method-heading">
+          <a href="#M000015" class="method-signature">
+          <span class="method-name">wp_parse_options!</span><span class="method-args">(options)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000015-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000015-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/will_paginate/lib/will_paginate/finder.rb, line 145</span>
+145:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">wp_parse_options!</span>(<span class="ruby-identifier">options</span>)
+146:         <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-value str">'hash parameters expected'</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">respond_to?</span> <span class="ruby-identifier">:symbolize_keys!</span>
+147:         <span class="ruby-identifier">options</span>.<span class="ruby-identifier">symbolize_keys!</span>
+148:         <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-value str">':page parameter required'</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">key?</span> <span class="ruby-identifier">:page</span>
+149:         
+150:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:count</span>] <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:total_entries</span>]
+151:           <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-value str">':count and :total_entries are mutually exclusive parameters'</span>
+152:         <span class="ruby-keyword kw">end</span>
+153: 
+154:         <span class="ruby-identifier">page</span>     = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:page</span>) <span class="ruby-operator">||</span> <span class="ruby-value">1</span>
+155:         <span class="ruby-identifier">per_page</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:per_page</span>) <span class="ruby-operator">||</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">per_page</span>
+156:         <span class="ruby-identifier">total</span>    = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">:total_entries</span>)
+157:         [<span class="ruby-identifier">options</span>, <span class="ruby-identifier">page</span>, <span class="ruby-identifier">per_page</span>, <span class="ruby-identifier">total</span>]
+158:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

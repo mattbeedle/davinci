@@ -1,0 +1,99 @@
+<div id="sepia">
+  <h3>Sepia</h3>
+  <div id="sepia_track" class="slider">
+    <div id="sepia_handle"></div>
+  </div>
+</div>
+<script>
+// <![CDATA[
+  new Control.Slider('sepia_handle','sepia_track',{range:$R(0,50000),
+    onChange:function(v){
+      $('sepia_threshold').value = v;
+      updatePreview('<%= user.to_param %>', '<%= album.to_param %>', '<%= photo.to_param %>');
+      return false;}});
+</script>
+<div id="solarization">
+  <h3>Solarization</h3>
+  <div id="solarization_track" class="slider">
+    <div id="solarization_handle"></div>
+  </div>
+</div>
+<script>
+// <![CDATA[
+  new Control.Slider('solarization_handle','solarization_track',{range:$R(0,50000),
+    onChange:function(v){
+      $('solarize_threshold').value = v;
+      updatePreview('<%= user.to_param %>', '<%= album.to_param %>', '<%= photo.to_param %>');
+      return false;}});
+// ]]>
+</script>
+<div id="posterization">
+  <h3>Posterize</h3>
+  <div id="posterization_track" class="slider">
+    <div id="posterization_handle"></div>
+  </div>
+</div>
+<script>
+// <![CDATA[
+  new Control.Slider('posterization_handle','posterization_track',{range:$R(0,10),
+    values:[0,2,3,4,5,6,7,8,9,10],
+    onChange:function(v){
+      $('posterize_levels').value = v;
+      updatePreview('<%= user.to_param %>', '<%= album.to_param %>', '<%= photo.to_param %>');
+      return false;}});
+// ]]>
+</script>
+<div id="charcoal">
+  <h3>Charcoal</h3>
+  <div>
+    <p>Radius</p>
+    <div id="charcoal_radius_track" class="slider">
+      <div id="charcoal_radius_handle"></div>
+    </div>
+    <p>Sigma</p>
+    <div id="charcoal_sigma_track" class="slider">
+      <div id="charcoal_sigma_handle"></div>
+    </div>
+  </div>
+</div>
+<script>
+// <![CDATA[
+  new Control.Slider('charcoal_radius_handle','charcoal_radius_track',{range:$R(0,10),
+    onChange:function(v){
+    $('charcoal_radius').value = v;
+    if($('charcoal_sigma').value != '') {
+      updatePreview('<%= user.to_param %>', '<%= album.to_param %>', '<%= photo.to_param %>');
+    }
+    return false;}});
+// ]]>
+// <![CDATA[
+  new Control.Slider('charcoal_sigma_handle','charcoal_sigma_track',{range:$R(0,10),
+    onChange:function(v){
+    $('charcoal_sigma').value = v;
+    if($('charcoal_radius').value != '') {
+      updatePreview('<%= user.to_param %>', '<%= album.to_param %>', '<%= photo.to_param %>');
+    }
+    return false;}});
+// ]]>
+</script>
+<div id="oil_paint">
+  <h3>Oil Paint</h3>
+  <div id="oil_paint_radius_track" class="slider">
+    <div id="oil_paint_radius_handle"></div>
+  </div>
+</div>
+<script>
+// <![CDATA[
+  new Control.Slider('oil_paint_radius_handle','oil_paint_radius_track',{range:$R(0, 10),
+    onChange:function(v) {
+      $('oil_paint_radius').value = v;
+      updatePreview('<%= user.to_param %>', '<%= album.to_param %>', '<%= photo.to_param %>');
+      return false;}});
+// ]]>
+</script>
+<div id="negate">
+  <h3>Negate</h3>
+  <%= check_box_tag :negate, 1, false,
+    :onclick => "$('negate').value = this.checked ? 1 : 0",
+    :onchange => "updatePreview('#{user.to_param}', '#{album.to_param}', '#{photo.to_param}');" %>
+</div>

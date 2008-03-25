@@ -1,0 +1,17 @@
+<div class="yui-g">
+  <div id="tags">
+    <% unless @photos.blank? %>
+      <div id="photos">
+        <h2>Photos</h2>
+        <%= render :partial => 'photos/photo', :collection => @photos, :locals => { :size => 'thumbnail',
+          :width => @width, :height => @height } %>
+      </div>
+    <% end %>
+    <% unless @albums.blank? %>
+      <div id="albums">
+        <h2>Albums</h2>
+        <%= render :partial => @albums %>
+      </div>
+    <% end %>
+  </div>
+</div>

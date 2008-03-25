@@ -1,0 +1,22 @@
+<div class="yui-g">
+  <h1><%= @product.name %></h1>
+  <p><%= @product.description %></p>
+  <p>Price: <%= @product.price %></p>
+  <p>Weight: <%= @product.weight %></p>
+  <div id="add_size">
+    <% form_for :product_size, :url => add_size_admin_product_path(@product), :html => { :method => :put } do |f| %>
+      <%= f.select :size_id, Size.find(:all).map { |s| [s.name, s.id] } %>
+      <br clear="all"/>
+      <br/>
+      <%= submit_tag :add %>
+    <% end %>
+  </div>
+  <div id="sizes">
+    <h2>Associated sizes</h2>
+    <% for size in @sizes %>
+      <div>
+        <%= size.name %>
+      </div>
+    <% end %>
+  </div>
+</div>

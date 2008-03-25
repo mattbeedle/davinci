@@ -1,0 +1,74 @@
+<div class="yui-g">
+  <div class="homediv">
+    <h2>Homepage Settings</h2>
+    <% form_tag(homepage_settings_path, :method => :put) do %>
+      <fieldset>
+        <label>Display News Tab?</label><br/>
+        <label>Yes
+          <%= radio_button_tag 'preferences[news]', "display", @current_user.display_news? %>
+        </label>
+        <label>No
+          <%= radio_button_tag 'preferences[news]', "hidden", !@current_user.display_news? %>
+        </label>
+        <br/>
+        <label>Display Welcome Tab?</label><br/>
+        <label>Yes
+          <%= radio_button_tag 'preferences[welcome]', "display", @current_user.display_welcome? %>
+        </label>
+        <label>No
+          <%= radio_button_tag 'preferences[welcome]', "hidden", !@current_user.display_welcome? %>
+        </label>
+        <br/>
+        <label>Display Bio Tab?</label><br/>
+        <label>Yes
+          <%= radio_button_tag 'preferences[bio]', "display", @current_user.display_bio? %>
+        </label>
+        <label>No
+          <%= radio_button_tag 'preferences[bio]', "hidden", !@current_user.display_bio? %>
+        </label>
+        <br/>
+        <label>Display Featured Albums Tab?</label><br/>
+        <label>Yes
+          <%= radio_button_tag 'preferences[featured_albums]', "display", @current_user.display_featured_albums? %>
+        </label>
+        <label>No
+          <%= radio_button_tag 'preferences[featured_albums]', "hidden", !@current_user.display_featured_albums? %>
+        </label>
+        <br/>
+        <label>Display Friends/Family Tab?</label><br/>
+        <label>Yes
+          <%= radio_button_tag 'preferences[relationships]', "display", @current_user.display_relationships? %>
+        </label>
+        <label>No
+          <%= radio_button_tag 'preferences[relationships]', "hidden", !@current_user.display_relationships? %>
+        </label>
+        <br/>
+        <label>Display User Groups Tag?</label><br/>
+        <label>Yes
+          <%= radio_button_tag 'preferences[groups]', "display", @current_user.display_groups? %>
+        </label>
+        <label>No
+          <%= radio_button_tag 'preferences[groups]', "hidden", !@current_user.display_groups? %>
+        </label>
+        <br/>
+        <label>Display Tags Tab?</label><br/>
+        <label>Yes
+          <%= radio_button_tag 'preferences[tags]', "display", @current_user.display_tags? %>
+        </label>
+        <label>No
+          <%= radio_button_tag 'preferences[tags]', "hidden", !@current_user.display_tags? %>
+        </label>
+        <br/>
+        <label>Display Albums Tab?</label><br/>
+        <label>Yes
+          <%= radio_button_tag 'preferences[albums]', 'display', @current_user.display_albums? %>
+        </label>
+        <label>No
+          <%= radio_button_tag 'preferences[albums]', 'hidden', !@current_user.display_albums? %>
+        </label>
+      </fieldset>
+      <br/>
+      <%= submit_tag :update %>
+    <% end %>
+  </div>
+</div>

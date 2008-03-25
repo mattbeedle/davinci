@@ -1,0 +1,7 @@
+<div class="yui-g">
+  <% form_for @user_group, :put do |f| %>
+    <%= render :partial => 'form', :locals => { :f => f } %>
+    <br/>
+    <%= submit_tag 'Update' %>
+  <% end %>
+</div>

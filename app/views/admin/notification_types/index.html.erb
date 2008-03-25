@@ -1,0 +1,6 @@
+<div class="yui-g">
+  <%= link_to 'new', new_admin_notification_type_path %>
+  <div id="notification_types">
+    <%= render :partial => 'notification_type', :collection => @notification_types %>
+  </div>
+</div>

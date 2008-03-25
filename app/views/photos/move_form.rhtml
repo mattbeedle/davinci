@@ -1,0 +1,8 @@
+<div class="yui-g">
+  <% form_tag move_user_album_photo_path(@user, params[:album_id], params[:id]), :method => :put do %>
+    <fieldset>
+      <label>Album<br/><%= select :target_album, :id, @albums.map { |u| [u.name, u.id] } %></label>
+    </fieldset><br/>
+    <%= submit_tag 'Move it!' %>
+  <% end %>
+</div>

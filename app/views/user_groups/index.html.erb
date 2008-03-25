@@ -1,0 +1,6 @@
+<div class="yui-g">
+  <%= link_to 'Start a new group', new_user_group_path if logged_in? %>
+  <div id="user_groups">
+    <%= render :partial => @user_groups %>
+  </div>
+</div>

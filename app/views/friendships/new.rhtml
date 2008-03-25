@@ -1,0 +1,7 @@
+<div class="yui-g">
+  <% form_for :friendship, @friendship, :url => user_friendships_path(@user), :html => { :method => :post } do |f| %>
+    <%= render :partial => 'form', :locals => { :f => f, :users => @users } %>
+    <br/>
+    <%= submit_tag 'Create' %> or <%= link_to 'cancel', user_friendships_path(@user) %>
+  <% end %>
+</div>

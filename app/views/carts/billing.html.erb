@@ -1,0 +1,54 @@
+<div class="yui-g">
+  <div id="addresses">
+    <%= error_messages_for :order %>
+    <% form_tag(set_billing_cart_path, :method => :put) do %>
+      <div id="new_billing">
+        <h2>Billing Address</h2>
+        <%= error_messages_for :billing_address %>
+        <fieldset>
+          <label>First name<br/><%= text_field :billing_address, :first_name %></label><br/>
+          <label>Last name<br/><%= text_field :billing_address, :last_name %></label><br/>
+          <label>Telephone<br/><%= text_field :billing_address, :telephone %></label><br/>
+          <label>Street*<br/><%= text_field :billing_address, :street %></label><br/>
+          <label>Locality<br/><%= text_field :billing_address, :locality %></label><br/>
+          <label>Region<br/><%= text_field :billing_address, :region %></label><br/>
+          <label>Postal code*<br/><%= text_field :billing_address, :postal_code %></label><br/>
+          <label>Country*<br/>
+            <%= select :billing_address, :country_id, Country.find(:all).map { |c| [c.name, c.id] } %>
+          </label>
+        </fieldset>
+        <h2>Card Details</h2>
+        <%= error_messages_for :order_account %>
+        <fieldset>
+          <% fields_for :order_account do |order_account| %>
+            <label>Card Number<br/><%= order_account.text_field :cc_number %></label><br/>
+            <label>Expires month<br/><%= order_account.select :expiration_month, 1..12 %></label><br/>
+            <label>Expires year<br/><%= order_account.select :expiration_year, Time.now.year..Time.now.year+4 %></label>
+          <% end %>
+        </fieldset>
+      </div>
+      <div id="new_shipping">
+        <h2>Shipping Address</h2>
+        <label>Same as billing?
+        <%= check_box_tag :same, nil, 
+          @order.shipping_address == @order.billing_address && !@order.shipping_address.blank? %>
+        </label>
+        <%= error_messages_for :shipping_address %>
+          <fieldset>
+            <label>First name<br/><%= text_field :shipping_address, :first_name %></label><br/>
+            <label>Last name<br/><%= text_field :shipping_address, :last_name %></label><br/>
+            <label>Telephone<br/><%= text_field :shipping_address, :telephone %></label><br/>
+            <label>Street*<br/><%= text_field :shipping_address, :street %></label><br/>
+            <label>Locality<br/><%= text_field :shipping_address, :locality %></label><br/>
+            <label>Region<br/><%= text_field :shipping_address, :region %></label><br/>
+            <label>Postal code*<br/><%= text_field :shipping_address, :postal_code %></label><br/>
+            <label>Country*<br/>
+              <%= select :shipping_address, :country_id, Country.find(:all).map { |c| [c.name, c.id] } %>
+            </label>
+          </fieldset>
+        </div>
+      </div>
+      <br/><br/>
+    <%= submit_tag :next %>
+  <% end %>
+</div>

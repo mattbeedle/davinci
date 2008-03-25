@@ -1,0 +1,13 @@
+<div class="album">
+    <h4><%= link_to album.name, user_album_path(album.user, album) %></h4>
+    <p>
+    <%= link_to image_tag(user_album_photo_path(:user_id => album.user, :album_id => album, :id => album.featured_photo,
+      :size => 'albumcover')+'.jpg'), user_album_path(album.user, album) if album.photos.length > 0 %>
+      <%= link_to image_tag('no-image-thumbnail.jpg', :align => 'texttop'),
+        user_album_path(album.user, album) unless album.photos.length > 0 %>
+    </p>
+    <% unless album.clean %>
+      <p><%= album.description %></p>
+      <p><%= album.updated_at.to_s(:long) %></p>
+    <% end %>
+</div>

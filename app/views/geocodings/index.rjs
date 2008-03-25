@@ -1,0 +1,2 @@
+page['photos'].visual_effect :highlight, :length => 10
+page['photos'].replace_html :partial => 'photo', :collection => @photos

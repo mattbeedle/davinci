@@ -1,0 +1,6 @@
+<div class="yui-g">
+  <p><%= link_to 'Browse user groups', user_groups_path %></p>
+  <div id="my_groups">
+    <%= render :partial => 'user_groups/user_group', :collection => @groups %>
+  </div>
+</div>

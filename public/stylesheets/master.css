@@ -1,0 +1,304 @@
+body {
+    font-family: verdanna, arial, sans-serif;
+    font-size: 90%;
+}
+
+h1 {
+    font-weight: bold;
+    font-size: 110%;
+}
+
+h2 {
+    font-weight: bold;
+    font-size: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+input, select {
+    padding: 5px 2px 5px 2px;
+    font-size: 130%;
+}
+
+img {
+    border: none;
+}
+
+strong {
+    font-weight: bold;
+}
+
+span#notice {
+    font-weight: bold;
+}
+
+span#error {
+    font-weight: bold;
+}
+
+div.inner {
+    float: left;
+}
+
+.css1 { font-size: 1.0em; }
+.css2 { font-size: 1.2em; }
+.css3 { font-size: 1.4em; }
+.css4 { font-size: 1.6em; }
+
+#logo {
+    margin: 5px 0 5px 0;
+}
+
+div.errorExplanation {
+    color: red;
+}
+
+/**
+ * home logged in
+ */
+
+div#home {
+    width: 770px;
+}
+
+div.homediv {
+    float: left;
+    width: 100%;
+    margin: 10px 0 10px 0;
+    padding: 0 10px 10px 10px;
+    border-top: 1px solid #888888;
+    border-bottom: 1px solid #333333;
+}
+
+span.close {
+    float: right;
+}
+
+div#home div#bio div#image {
+    float: left;
+}
+
+div#home div#featured_albums div.album {
+    float: left;
+}
+
+div#home div#my_albums div.album {
+    float: left;
+    padding: 0 5px; 0 5px;
+    width: 150px;
+}
+
+/**
+ * Photo edit page
+ **/
+div#edit-photo div#preview {
+    margin-bottom: 5px;
+    float: left;
+    padding: 5px 5px 0 0;
+}
+
+div#edit-photo div#form {
+    float: left;
+}
+
+#tabnav {
+    height: 20px;
+    margin: 0;
+    padding-left: 10px;
+    background: url(../images/tab_bottom.gif) repeat-x bottom;
+}
+
+#tabnav li {
+    margin: 0; 
+    padding: 0;
+    display: inline;
+    list-style-type: none;
+}
+        
+#tabnav a:link, #tabnav a:visited {
+    float: left;
+    background: #f3f3f3;
+    font-size: 10px;
+    line-height: 14px;
+    font-weight: bold;
+    padding: 2px 10px 2px 10px;
+    margin-right: 4px;
+    border: 1px solid #ccc;
+    text-decoration: none;
+    color: #666;
+}
+
+#tabnav a:link.active, #tabnav a:visited.active {
+    border-bottom: 1px solid #fff;
+    background: #fff;
+    color: #000;
+}
+
+#tabnav a:hover {
+    background: #fff;
+}
+
+div#edit-photo div#controls {
+    padding: 3px;
+    width: 220px;
+    float: right;
+}
+
+div#controls h3 {
+    padding: 3px 0 3px 0;
+    margin: 0 0 0 0;
+    font-size: 120%;
+    font-weight: bold;
+}
+
+div.slider {
+    width: 150px;
+    height: 5px;
+    margin-top:5px;
+    margin-bottom:5px;
+    background: #ddd;
+    position: relative;
+}
+
+div.slider div {
+    position:absolute;
+    width:8px;
+    height:15px;
+    margin-top:-5px;
+    background: #999;
+    border:1px outset white;
+    cursor: move;
+}
+
+/**
+ * Geocodings
+ **/
+
+div#geocodings {
+    float: left;
+    width: 100%;
+}
+
+div#geocodings div#photos {
+    float: left;
+    width: 100%;
+}
+
+div#geocodings div#photos div.photo {
+    float: left;
+    padding: 5px;
+}
+
+/**
+ * User Group index
+ */
+div#user_groups, div#my_groups {
+    float: left;
+    width: 100%;
+}
+
+div#user_groups div.user_group, div#my_groups div.user_group {
+    float: left;
+}
+
+/**
+ * User Group Show
+ */
+div#user_group {
+    float: left;
+}
+
+div#user_group div#photos {
+    float: left;
+    width: 300px;
+    padding: 0 5px 0 5px;
+}
+
+
+div#user_group div#photos div.photo {
+    float: left;
+}
+
+div#user_group div#albums {
+    float: left;
+    width: 300px;
+    padding: 0 5px 0 5px;
+}
+
+div#user_group div#albums div.album {
+    float: left;
+}
+
+/**
+ * Albums index
+ */
+div#albums {
+    float: left;
+    width: 100%;
+}
+
+div#albums div.album {
+   float: left;
+}
+
+/**
+ * Cart show order
+ */
+div#addresses {
+    width: 100%;
+    float: left;
+}
+
+div#addresses div#shipping {
+    width: 50%;
+    float: left;
+}
+
+div#addresses div#billing {
+    width: 50%;
+    float: left;
+}
+
+div#shipping_options {
+    width: 100%;
+    float: left;
+}
+
+div#items {
+    width: 100%;
+    float: left;
+}
+
+div#items div.order_line_item {
+    float: left;
+    padding: 5px;
+}
+
+/**
+ * Cart address forms
+ */
+div#addresses {
+    width: 100%
+    float: left;
+}
+
+div#addresses div#stored_addresses {
+    width: 100%;
+    float: left;
+}
+
+div#addresses div#new_billing {
+    width: 49%;
+    float: left;
+}
+
+div#addresses div#new_shipping {
+    width: 49%;
+    float: left;
+}

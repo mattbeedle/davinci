@@ -1,0 +1,7 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  sender_id: 1
+  code: aaaaaaaaaaaaaaaaaaaa
+  receiver_name: matt
+  receiver_email: matt@mattbeedle.com

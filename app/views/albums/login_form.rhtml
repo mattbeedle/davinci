@@ -1,0 +1,7 @@
+<div class="yui-g">
+  <% form_tag login_user_album_path(@user, @album) do %>
+    <%= render :partial => 'login_form' %>
+    <br/>
+    <%= submit_tag 'Go' %>
+  <% end %>
+</div>

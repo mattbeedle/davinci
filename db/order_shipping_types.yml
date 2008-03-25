@@ -1,0 +1,56 @@
+--- 
+- !ruby/object:OrderShippingType 
+  attributes: 
+    shipping_multiplier: "0.80"
+    company: FedEx
+    name: FedEx Ground (USA Only)
+    code: FGR
+    flat_fee: "10.00"
+    transaction_type: rate_ground
+    id: "1"
+    service_type: ground_service
+    is_domestic: "1"
+- !ruby/object:OrderShippingType 
+  attributes: 
+    shipping_multiplier: "1.50"
+    company: FedEx
+    name: FedEx Next Day Air Shipping (USA Only)
+    code: FES
+    flat_fee: "35.00"
+    transaction_type: rate_express
+    id: "2"
+    service_type: standard_overnight
+    is_domestic: "1"
+- !ruby/object:OrderShippingType 
+  attributes: 
+    shipping_multiplier: "1.00"
+    company: FedEx
+    name: FedEx 2nd Day Air Shipping (USA Only)
+    code: F2D
+    flat_fee: "17.00"
+    transaction_type: rate_express
+    id: "3"
+    service_type: 2day
+    is_domestic: "1"
+- !ruby/object:OrderShippingType 
+  attributes: 
+    shipping_multiplier: "2.00"
+    company: FedEx
+    name: FedEx International Economy (International Only)
+    code: FIX
+    flat_fee: "30.00"
+    transaction_type: rate_ground
+    id: "4"
+    service_type: international_economy
+    is_domestic: "0"
+- !ruby/object:OrderShippingType 
+  attributes: 
+    shipping_multiplier: "3.00"
+    company: FedEx
+    name: FedEx International Priority (International Only)
+    code: FIC
+    flat_fee: "45.00"
+    transaction_type: rate_express
+    id: "5"
+    service_type: international_priority
+    is_domestic: "0"

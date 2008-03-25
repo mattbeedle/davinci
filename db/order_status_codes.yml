@@ -1,0 +1,37 @@
+--- 
+- !ruby/object:OrderStatusCode 
+  attributes: 
+    name: CANCELLED
+    id: "8"
+- !ruby/object:OrderStatusCode 
+  attributes: 
+    name: CART
+    id: "1"
+- !ruby/object:OrderStatusCode 
+  attributes: 
+    name: "ON HOLD - AWAITING PAYMENT"
+    id: "4"
+- !ruby/object:OrderStatusCode 
+  attributes: 
+    name: "ON HOLD - PAYMENT FAILED"
+    id: "3"
+- !ruby/object:OrderStatusCode 
+  attributes: 
+    name: "ORDERED - PAID - SHIPPED"
+    id: "6"
+- !ruby/object:OrderStatusCode 
+  attributes: 
+    name: "ORDERED - PAID - TO SHIP"
+    id: "5"
+- !ruby/object:OrderStatusCode 
+  attributes: 
+    name: RETURNED
+    id: "9"
+- !ruby/object:OrderStatusCode 
+  attributes: 
+    name: SENT TO FULFILLMENT
+    id: "7"
+- !ruby/object:OrderStatusCode 
+  attributes: 
+    name: TO CHARGE
+    id: "2"

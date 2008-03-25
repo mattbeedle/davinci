@@ -1,0 +1,32 @@
+<div class="yui-g">
+  <div>
+    <%= link_to 'buy', products_path(@user, @album, @photo) %>
+  </div>
+  <%= render :partial => 'photo', :locals => { :photo => @photo, :size => 'fullscreen', :width => nil, :height => nil } %>
+  <br/>
+  <% if @album.display_filenames and @photo.description.blank? %>
+    <p><%= @photo.original_filename %></p>
+  <% elsif not @photo.description.blank? %>
+    <p><%= @photo.description %></p>
+  <% end %>
+  <% if @album.camera_info %>
+    <div id="camera_info">
+      <%= "Make #{@photo.get_exif_by_entry('Make')}" if @photo.get_exif_by_entry('Make') %>
+      <%= "Model #{@photo.get_exif_by_entry('Model')}" if @photo.get_exif_by_entry('Model') %>
+      <%= "Exposure Time #{@photo.get_exif_by_entry('ExposureTime')}" if @photo.get_exif_by_entry('ExposureTime') %>
+    </div>
+  <% end %>
+  <div id="admin">
+    <%= link_to 'edit', edit_user_album_photo_path(@user, @album, @photo) %>
+    <%= link_to 'delete', user_album_photo_path(@user, @album, @photo), :method => :delete,
+      :confirm => 'Are you sure?' %>
+    <%= link_to 'geocode', user_album_geocodings_path(:user_id => @user, :album_id => @album, :photo => @photo) %>
+    <%= link_to 'history', user_album_photo_versions_path(@user, @album, @photo) if @photo.versions.length > 1 %>
+    <%= link_to 'feature', user_album_photo_path(:user_id => @user, :album_id => @album, :id => @photo, :featured => true),
+      :method => :put unless @photo.featured %>
+    <%= link_to 'add comment', new_user_album_photo_comment_path(@user, @album, @photo) if @album.commentable %>
+    <%= link_to 'move', move_form_user_album_photo_path(@user, @album, @photo) %>
+    <%= link_to 'download', download_user_album_photo_path(@user, @album, @photo) %>
+    <%= link_to "It's me!", set_profile_photo_user_path(:id => @user, :profile_photo_id => @photo.id), :method => :put %>
+  </div>
+</div>

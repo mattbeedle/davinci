@@ -1,0 +1,1835 @@
+--- 
+- !ruby/object:Country 
+  attributes: 
+    name: United States of America
+    fedex_code: US
+    number_of_orders: "4987"
+    ufsi_code: "001"
+    id: "00000000001"
+- !ruby/object:Country 
+  attributes: 
+    name: Canada
+    fedex_code: CA
+    number_of_orders: "121"
+    ufsi_code: "034"
+    id: "00000000002"
+- !ruby/object:Country 
+  attributes: 
+    name: Great Britian
+    fedex_code: GB
+    number_of_orders: "151"
+    ufsi_code: "073"
+    id: "00000000003"
+- !ruby/object:Country 
+  attributes: 
+    name: Australia
+    fedex_code: AU
+    number_of_orders: "128"
+    ufsi_code: "012"
+    id: "00000000004"
+- !ruby/object:Country 
+  attributes: 
+    name: India
+    fedex_code: IN
+    number_of_orders: "58"
+    ufsi_code: 087
+    id: "00000000005"
+- !ruby/object:Country 
+  attributes: 
+    name: Afghanistan
+    fedex_code: AF
+    number_of_orders: "1"
+    ufsi_code: "002"
+    id: "00000000006"
+- !ruby/object:Country 
+  attributes: 
+    name: Albania
+    fedex_code: AL
+    number_of_orders: "2"
+    ufsi_code: "003"
+    id: "00000000007"
+- !ruby/object:Country 
+  attributes: 
+    name: Algeria
+    fedex_code: DZ
+    number_of_orders: "2"
+    ufsi_code: "004"
+    id: 00000000008
+- !ruby/object:Country 
+  attributes: 
+    name: Andorra
+    fedex_code: AD
+    number_of_orders: "2"
+    ufsi_code: "005"
+    id: 00000000009
+- !ruby/object:Country 
+  attributes: 
+    name: Angola
+    fedex_code: AO
+    number_of_orders: "0"
+    ufsi_code: "006"
+    id: "00000000010"
+- !ruby/object:Country 
+  attributes: 
+    name: Anguilla
+    fedex_code: AI
+    number_of_orders: "0"
+    ufsi_code: "007"
+    id: "00000000011"
+- !ruby/object:Country 
+  attributes: 
+    name: Antigua & Barbuda
+    fedex_code: AG
+    number_of_orders: "0"
+    ufsi_code: 008
+    id: "00000000012"
+- !ruby/object:Country 
+  attributes: 
+    name: Argentina
+    fedex_code: AR
+    number_of_orders: "0"
+    ufsi_code: 009
+    id: "00000000013"
+- !ruby/object:Country 
+  attributes: 
+    name: Aruba
+    fedex_code: AW
+    number_of_orders: "0"
+    ufsi_code: "010"
+    id: "00000000014"
+- !ruby/object:Country 
+  attributes: 
+    name: Ascension
+    fedex_code: 
+    number_of_orders: "0"
+    ufsi_code: "011"
+    id: "00000000015"
+- !ruby/object:Country 
+  attributes: 
+    name: Austria
+    fedex_code: AT
+    number_of_orders: "0"
+    ufsi_code: "013"
+    id: "00000000016"
+- !ruby/object:Country 
+  attributes: 
+    name: Azores
+    fedex_code: 
+    number_of_orders: "2"
+    ufsi_code: "014"
+    id: "00000000017"
+- !ruby/object:Country 
+  attributes: 
+    name: Bahamas
+    fedex_code: BS
+    number_of_orders: "1"
+    ufsi_code: "015"
+    id: 00000000018
+- !ruby/object:Country 
+  attributes: 
+    name: Bahrain
+    fedex_code: BH
+    number_of_orders: "0"
+    ufsi_code: "016"
+    id: 00000000019
+- !ruby/object:Country 
+  attributes: 
+    name: Bangladesh
+    fedex_code: BD
+    number_of_orders: "0"
+    ufsi_code: "017"
+    id: "00000000020"
+- !ruby/object:Country 
+  attributes: 
+    name: Barbados
+    fedex_code: BB
+    number_of_orders: "0"
+    ufsi_code: 018
+    id: "00000000021"
+- !ruby/object:Country 
+  attributes: 
+    name: Belgium
+    fedex_code: BE
+    number_of_orders: "0"
+    ufsi_code: 019
+    id: "00000000022"
+- !ruby/object:Country 
+  attributes: 
+    name: Belize
+    fedex_code: BZ
+    number_of_orders: "0"
+    ufsi_code: "020"
+    id: "00000000023"
+- !ruby/object:Country 
+  attributes: 
+    name: Benin
+    fedex_code: BJ
+    number_of_orders: "0"
+    ufsi_code: "021"
+    id: "00000000024"
+- !ruby/object:Country 
+  attributes: 
+    name: Bermuda
+    fedex_code: BM
+    number_of_orders: "0"
+    ufsi_code: "022"
+    id: "00000000025"
+- !ruby/object:Country 
+  attributes: 
+    name: Bhutan
+    fedex_code: BT
+    number_of_orders: "0"
+    ufsi_code: "023"
+    id: "00000000026"
+- !ruby/object:Country 
+  attributes: 
+    name: Bolivia
+    fedex_code: BO
+    number_of_orders: "0"
+    ufsi_code: "024"
+    id: "00000000027"
+- !ruby/object:Country 
+  attributes: 
+    name: Botswana
+    fedex_code: BW
+    number_of_orders: "0"
+    ufsi_code: "025"
+    id: 00000000028
+- !ruby/object:Country 
+  attributes: 
+    name: Brazil
+    fedex_code: BR
+    number_of_orders: "4"
+    ufsi_code: "026"
+    id: 00000000029
+- !ruby/object:Country 
+  attributes: 
+    name: British Virgin Islands
+    fedex_code: VG
+    number_of_orders: "0"
+    ufsi_code: "027"
+    id: "00000000030"
+- !ruby/object:Country 
+  attributes: 
+    name: Brunei
+    fedex_code: BN
+    number_of_orders: "0"
+    ufsi_code: 028
+    id: "00000000031"
+- !ruby/object:Country 
+  attributes: 
+    name: Bulgaria
+    fedex_code: BG
+    number_of_orders: "0"
+    ufsi_code: 029
+    id: "00000000032"
+- !ruby/object:Country 
+  attributes: 
+    name: Burkina Faso
+    fedex_code: BF
+    number_of_orders: "0"
+    ufsi_code: "030"
+    id: "00000000033"
+- !ruby/object:Country 
+  attributes: 
+    name: Burma
+    fedex_code: MM
+    number_of_orders: "0"
+    ufsi_code: "031"
+    id: "00000000034"
+- !ruby/object:Country 
+  attributes: 
+    name: Burundi
+    fedex_code: BI
+    number_of_orders: "0"
+    ufsi_code: "032"
+    id: "00000000035"
+- !ruby/object:Country 
+  attributes: 
+    name: Cameroon
+    fedex_code: CM
+    number_of_orders: "0"
+    ufsi_code: "033"
+    id: "00000000036"
+- !ruby/object:Country 
+  attributes: 
+    name: Cape Verde
+    fedex_code: CV
+    number_of_orders: "0"
+    ufsi_code: "035"
+    id: "00000000037"
+- !ruby/object:Country 
+  attributes: 
+    name: Cayman Islands
+    fedex_code: KY
+    number_of_orders: "0"
+    ufsi_code: "036"
+    id: 00000000038
+- !ruby/object:Country 
+  attributes: 
+    name: Central African Republic
+    fedex_code: CF
+    number_of_orders: "0"
+    ufsi_code: "037"
+    id: 00000000039
+- !ruby/object:Country 
+  attributes: 
+    name: Chad
+    fedex_code: TD
+    number_of_orders: "0"
+    ufsi_code: 038
+    id: "00000000040"
+- !ruby/object:Country 
+  attributes: 
+    name: Chile
+    fedex_code: CL
+    number_of_orders: "0"
+    ufsi_code: 039
+    id: "00000000041"
+- !ruby/object:Country 
+  attributes: 
+    name: China
+    fedex_code: CN
+    number_of_orders: "3"
+    ufsi_code: "040"
+    id: "00000000042"
+- !ruby/object:Country 
+  attributes: 
+    name: Columbia
+    fedex_code: CO
+    number_of_orders: "0"
+    ufsi_code: "041"
+    id: "00000000043"
+- !ruby/object:Country 
+  attributes: 
+    name: Comoros
+    fedex_code: KM
+    number_of_orders: "0"
+    ufsi_code: "042"
+    id: "00000000044"
+- !ruby/object:Country 
+  attributes: 
+    name: Congo
+    fedex_code: CG
+    number_of_orders: "0"
+    ufsi_code: "043"
+    id: "00000000045"
+- !ruby/object:Country 
+  attributes: 
+    name: Corsica
+    fedex_code: 
+    number_of_orders: "0"
+    ufsi_code: "044"
+    id: "00000000046"
+- !ruby/object:Country 
+  attributes: 
+    name: Costa Rica
+    fedex_code: CR
+    number_of_orders: "0"
+    ufsi_code: "045"
+    id: "00000000047"
+- !ruby/object:Country 
+  attributes: 
+    name: "Cote d'Ivoire"
+    fedex_code: CI
+    number_of_orders: "0"
+    ufsi_code: "046"
+    id: 00000000048
+- !ruby/object:Country 
+  attributes: 
+    name: Cuba
+    fedex_code: CU
+    number_of_orders: "0"
+    ufsi_code: "047"
+    id: 00000000049
+- !ruby/object:Country 
+  attributes: 
+    name: Cyprus
+    fedex_code: CY
+    number_of_orders: "0"
+    ufsi_code: 048
+    id: "00000000050"
+- !ruby/object:Country 
+  attributes: 
+    name: Czech Republic
+    fedex_code: CZ
+    number_of_orders: "4"
+    ufsi_code: 049
+    id: "00000000051"
+- !ruby/object:Country 
+  attributes: 
+    name: Denmark
+    fedex_code: DK
+    number_of_orders: "16"
+    ufsi_code: "050"
+    id: "00000000052"
+- !ruby/object:Country 
+  attributes: 
+    name: Djibouti
+    fedex_code: DJ
+    number_of_orders: "0"
+    ufsi_code: "051"
+    id: "00000000053"
+- !ruby/object:Country 
+  attributes: 
+    name: Dominica
+    fedex_code: DM
+    number_of_orders: "0"
+    ufsi_code: "052"
+    id: "00000000054"
+- !ruby/object:Country 
+  attributes: 
+    name: Dominican Republic
+    fedex_code: DO
+    number_of_orders: "1"
+    ufsi_code: "053"
+    id: "00000000055"
+- !ruby/object:Country 
+  attributes: 
+    name: East Timor
+    fedex_code: TL
+    number_of_orders: "0"
+    ufsi_code: "054"
+    id: "00000000056"
+- !ruby/object:Country 
+  attributes: 
+    name: Ecuador
+    fedex_code: EC
+    number_of_orders: "0"
+    ufsi_code: "055"
+    id: "00000000057"
+- !ruby/object:Country 
+  attributes: 
+    name: Egypt
+    fedex_code: EG
+    number_of_orders: "1"
+    ufsi_code: "056"
+    id: 00000000058
+- !ruby/object:Country 
+  attributes: 
+    name: El Salvador
+    fedex_code: SV
+    number_of_orders: "2"
+    ufsi_code: "057"
+    id: 00000000059
+- !ruby/object:Country 
+  attributes: 
+    name: Equatorial Guinea
+    fedex_code: GQ
+    number_of_orders: "0"
+    ufsi_code: 058
+    id: "00000000060"
+- !ruby/object:Country 
+  attributes: 
+    name: Estonia
+    fedex_code: EE
+    number_of_orders: "0"
+    ufsi_code: 059
+    id: "00000000061"
+- !ruby/object:Country 
+  attributes: 
+    name: Ethiopia
+    fedex_code: ET
+    number_of_orders: "0"
+    ufsi_code: "060"
+    id: "00000000062"
+- !ruby/object:Country 
+  attributes: 
+    name: Falkland Islands
+    fedex_code: FK
+    number_of_orders: "0"
+    ufsi_code: "061"
+    id: "00000000063"
+- !ruby/object:Country 
+  attributes: 
+    name: Faroe Islands
+    fedex_code: FO
+    number_of_orders: "0"
+    ufsi_code: "062"
+    id: "00000000064"
+- !ruby/object:Country 
+  attributes: 
+    name: Fiji
+    fedex_code: FJ
+    number_of_orders: "0"
+    ufsi_code: "063"
+    id: "00000000065"
+- !ruby/object:Country 
+  attributes: 
+    name: Finland
+    fedex_code: FI
+    number_of_orders: "4"
+    ufsi_code: "064"
+    id: "00000000066"
+- !ruby/object:Country 
+  attributes: 
+    name: France
+    fedex_code: FR
+    number_of_orders: "6"
+    ufsi_code: "065"
+    id: "00000000067"
+- !ruby/object:Country 
+  attributes: 
+    name: French Guiana
+    fedex_code: GF
+    number_of_orders: "0"
+    ufsi_code: "066"
+    id: 00000000068
+- !ruby/object:Country 
+  attributes: 
+    name: French Polynesia
+    fedex_code: PF
+    number_of_orders: "0"
+    ufsi_code: "067"
+    id: 00000000069
+- !ruby/object:Country 
+  attributes: 
+    name: Gabon
+    fedex_code: GA
+    number_of_orders: "0"
+    ufsi_code: 068
+    id: "00000000070"
+- !ruby/object:Country 
+  attributes: 
+    name: Gambia
+    fedex_code: GM
+    number_of_orders: "0"
+    ufsi_code: 069
+    id: "00000000071"
+- !ruby/object:Country 
+  attributes: 
+    name: Germany
+    fedex_code: DE
+    number_of_orders: "10"
+    ufsi_code: "070"
+    id: "00000000072"
+- !ruby/object:Country 
+  attributes: 
+    name: Ghana
+    fedex_code: GH
+    number_of_orders: "0"
+    ufsi_code: "071"
+    id: "00000000073"
+- !ruby/object:Country 
+  attributes: 
+    name: Gibraltar
+    fedex_code: GI
+    number_of_orders: "0"
+    ufsi_code: "072"
+    id: "00000000074"
+- !ruby/object:Country 
+  attributes: 
+    name: Greece
+    fedex_code: GR
+    number_of_orders: "4"
+    ufsi_code: "074"
+    id: "00000000075"
+- !ruby/object:Country 
+  attributes: 
+    name: Greenland
+    fedex_code: GL
+    number_of_orders: "0"
+    ufsi_code: "075"
+    id: "00000000076"
+- !ruby/object:Country 
+  attributes: 
+    name: Grenada
+    fedex_code: GD
+    number_of_orders: "0"
+    ufsi_code: "076"
+    id: "00000000077"
+- !ruby/object:Country 
+  attributes: 
+    name: Guadeloupe
+    fedex_code: GP
+    number_of_orders: "1"
+    ufsi_code: "077"
+    id: 00000000078
+- !ruby/object:Country 
+  attributes: 
+    name: Guatemala
+    fedex_code: GT
+    number_of_orders: "0"
+    ufsi_code: 078
+    id: 00000000079
+- !ruby/object:Country 
+  attributes: 
+    name: Guinea
+    fedex_code: GN
+    number_of_orders: "0"
+    ufsi_code: 079
+    id: 00000000080
+- !ruby/object:Country 
+  attributes: 
+    name: Guinea-Bissau
+    fedex_code: GW
+    number_of_orders: "0"
+    ufsi_code: 080
+    id: 00000000081
+- !ruby/object:Country 
+  attributes: 
+    name: Guyana
+    fedex_code: GY
+    number_of_orders: "0"
+    ufsi_code: 081
+    id: 00000000082
+- !ruby/object:Country 
+  attributes: 
+    name: Haiti
+    fedex_code: HT
+    number_of_orders: "0"
+    ufsi_code: 082
+    id: 00000000083
+- !ruby/object:Country 
+  attributes: 
+    name: Honduras
+    fedex_code: HN
+    number_of_orders: "0"
+    ufsi_code: 083
+    id: 00000000084
+- !ruby/object:Country 
+  attributes: 
+    name: Hong Kong
+    fedex_code: HK
+    number_of_orders: "21"
+    ufsi_code: 084
+    id: 00000000085
+- !ruby/object:Country 
+  attributes: 
+    name: Hungary
+    fedex_code: HU
+    number_of_orders: "2"
+    ufsi_code: 085
+    id: 00000000086
+- !ruby/object:Country 
+  attributes: 
+    name: Iceland
+    fedex_code: IS
+    number_of_orders: "0"
+    ufsi_code: 086
+    id: 00000000087
+- !ruby/object:Country 
+  attributes: 
+    name: Indonesia
+    fedex_code: ID
+    number_of_orders: "2"
+    ufsi_code: 088
+    id: 00000000088
+- !ruby/object:Country 
+  attributes: 
+    name: Iran
+    fedex_code: IR
+    number_of_orders: "0"
+    ufsi_code: 089
+    id: 00000000089
+- !ruby/object:Country 
+  attributes: 
+    name: Iraq
+    fedex_code: IQ
+    number_of_orders: "0"
+    ufsi_code: 090
+    id: 00000000090
+- !ruby/object:Country 
+  attributes: 
+    name: Ireland
+    fedex_code: IE
+    number_of_orders: "21"
+    ufsi_code: 091
+    id: 00000000091
+- !ruby/object:Country 
+  attributes: 
+    name: Israel
+    fedex_code: IL
+    number_of_orders: "6"
+    ufsi_code: 092
+    id: 00000000092
+- !ruby/object:Country 
+  attributes: 
+    name: Italy
+    fedex_code: IT
+    number_of_orders: "6"
+    ufsi_code: 093
+    id: 00000000093
+- !ruby/object:Country 
+  attributes: 
+    name: Jamaica
+    fedex_code: JM
+    number_of_orders: "2"
+    ufsi_code: 094
+    id: 00000000094
+- !ruby/object:Country 
+  attributes: 
+    name: Japan
+    fedex_code: JP
+    number_of_orders: "6"
+    ufsi_code: 095
+    id: 00000000095
+- !ruby/object:Country 
+  attributes: 
+    name: Jordan
+    fedex_code: JO
+    number_of_orders: "0"
+    ufsi_code: 096
+    id: 00000000096
+- !ruby/object:Country 
+  attributes: 
+    name: Kampuchea
+    fedex_code: 
+    number_of_orders: "0"
+    ufsi_code: 097
+    id: 00000000097
+- !ruby/object:Country 
+  attributes: 
+    name: Kenya
+    fedex_code: KE
+    number_of_orders: "0"
+    ufsi_code: 098
+    id: 00000000098
+- !ruby/object:Country 
+  attributes: 
+    name: Kiribati
+    fedex_code: KI
+    number_of_orders: "0"
+    ufsi_code: 099
+    id: 00000000099
+- !ruby/object:Country 
+  attributes: 
+    name: "Korea, Democ. Peoples Rep."
+    fedex_code: 
+    number_of_orders: "1"
+    ufsi_code: "100"
+    id: "00000000100"
+- !ruby/object:Country 
+  attributes: 
+    name: Kuwait
+    fedex_code: KW
+    number_of_orders: "36"
+    ufsi_code: "101"
+    id: "00000000101"
+- !ruby/object:Country 
+  attributes: 
+    name: Laos
+    fedex_code: LA
+    number_of_orders: "0"
+    ufsi_code: "102"
+    id: "00000000102"
+- !ruby/object:Country 
+  attributes: 
+    name: Latvia
+    fedex_code: LV
+    number_of_orders: "0"
+    ufsi_code: "103"
+    id: "00000000103"
+- !ruby/object:Country 
+  attributes: 
+    name: Lebanon
+    fedex_code: LB
+    number_of_orders: "2"
+    ufsi_code: "104"
+    id: "00000000104"
+- !ruby/object:Country 
+  attributes: 
+    name: Lesotho
+    fedex_code: LS
+    number_of_orders: "0"
+    ufsi_code: "105"
+    id: "00000000105"
+- !ruby/object:Country 
+  attributes: 
+    name: Liberia
+    fedex_code: LR
+    number_of_orders: "0"
+    ufsi_code: "106"
+    id: "00000000106"
+- !ruby/object:Country 
+  attributes: 
+    name: Libya
+    fedex_code: LY
+    number_of_orders: "0"
+    ufsi_code: "107"
+    id: "00000000107"
+- !ruby/object:Country 
+  attributes: 
+    name: Liechtenstein
+    fedex_code: LI
+    number_of_orders: "0"
+    ufsi_code: "108"
+    id: 00000000108
+- !ruby/object:Country 
+  attributes: 
+    name: Lithuania
+    fedex_code: LT
+    number_of_orders: "0"
+    ufsi_code: "109"
+    id: 00000000109
+- !ruby/object:Country 
+  attributes: 
+    name: Luxembourg
+    fedex_code: LU
+    number_of_orders: "0"
+    ufsi_code: "110"
+    id: "00000000110"
+- !ruby/object:Country 
+  attributes: 
+    name: Macao
+    fedex_code: MO
+    number_of_orders: "0"
+    ufsi_code: "111"
+    id: "00000000111"
+- !ruby/object:Country 
+  attributes: 
+    name: Madagascar
+    fedex_code: MG
+    number_of_orders: "0"
+    ufsi_code: "112"
+    id: "00000000112"
+- !ruby/object:Country 
+  attributes: 
+    name: Madeira Islands
+    fedex_code: 
+    number_of_orders: "0"
+    ufsi_code: "113"
+    id: "00000000113"
+- !ruby/object:Country 
+  attributes: 
+    name: Malawi
+    fedex_code: MW
+    number_of_orders: "0"
+    ufsi_code: "114"
+    id: "00000000114"
+- !ruby/object:Country 
+  attributes: 
+    name: Malaysia
+    fedex_code: MY
+    number_of_orders: "10"
+    ufsi_code: "115"
+    id: "00000000115"
+- !ruby/object:Country 
+  attributes: 
+    name: Maldives
+    fedex_code: MV
+    number_of_orders: "0"
+    ufsi_code: "116"
+    id: "00000000116"
+- !ruby/object:Country 
+  attributes: 
+    name: Mali
+    fedex_code: MI
+    number_of_orders: "0"
+    ufsi_code: "117"
+    id: "00000000117"
+- !ruby/object:Country 
+  attributes: 
+    name: Malta
+    fedex_code: MT
+    number_of_orders: "6"
+    ufsi_code: "118"
+    id: 00000000118
+- !ruby/object:Country 
+  attributes: 
+    name: Martinique
+    fedex_code: MQ
+    number_of_orders: "0"
+    ufsi_code: "119"
+    id: 00000000119
+- !ruby/object:Country 
+  attributes: 
+    name: Mauritania
+    fedex_code: MR
+    number_of_orders: "0"
+    ufsi_code: "120"
+    id: "00000000120"
+- !ruby/object:Country 
+  attributes: 
+    name: Mauritius
+    fedex_code: MU
+    number_of_orders: "0"
+    ufsi_code: "121"
+    id: "00000000121"
+- !ruby/object:Country 
+  attributes: 
+    name: Mexico
+    fedex_code: MX
+    number_of_orders: "7"
+    ufsi_code: "122"
+    id: "00000000122"
+- !ruby/object:Country 
+  attributes: 
+    name: Monaco
+    fedex_code: MC
+    number_of_orders: "0"
+    ufsi_code: "123"
+    id: "00000000123"
+- !ruby/object:Country 
+  attributes: 
+    name: Mongolia
+    fedex_code: MN
+    number_of_orders: "2"
+    ufsi_code: "124"
+    id: "00000000124"
+- !ruby/object:Country 
+  attributes: 
+    name: Montserrat
+    fedex_code: MS
+    number_of_orders: "0"
+    ufsi_code: "125"
+    id: "00000000125"
+- !ruby/object:Country 
+  attributes: 
+    name: Morocco
+    fedex_code: MA
+    number_of_orders: "0"
+    ufsi_code: "126"
+    id: "00000000126"
+- !ruby/object:Country 
+  attributes: 
+    name: Mozambique
+    fedex_code: MZ
+    number_of_orders: "0"
+    ufsi_code: "127"
+    id: "00000000127"
+- !ruby/object:Country 
+  attributes: 
+    name: Nauru
+    fedex_code: NR
+    number_of_orders: "0"
+    ufsi_code: "128"
+    id: 00000000128
+- !ruby/object:Country 
+  attributes: 
+    name: Nepal
+    fedex_code: NP
+    number_of_orders: "2"
+    ufsi_code: "129"
+    id: 00000000129
+- !ruby/object:Country 
+  attributes: 
+    name: Netherlands
+    fedex_code: NL
+    number_of_orders: "3"
+    ufsi_code: "130"
+    id: "00000000130"
+- !ruby/object:Country 
+  attributes: 
+    name: Netherlands Antilies
+    fedex_code: AN
+    number_of_orders: "0"
+    ufsi_code: "131"
+    id: "00000000131"
+- !ruby/object:Country 
+  attributes: 
+    name: New Caledonia
+    fedex_code: NC
+    number_of_orders: "0"
+    ufsi_code: "132"
+    id: "00000000132"
+- !ruby/object:Country 
+  attributes: 
+    name: New Zealand
+    fedex_code: NZ
+    number_of_orders: "8"
+    ufsi_code: "133"
+    id: "00000000133"
+- !ruby/object:Country 
+  attributes: 
+    name: Nicaragua
+    fedex_code: NI
+    number_of_orders: "0"
+    ufsi_code: "134"
+    id: "00000000134"
+- !ruby/object:Country 
+  attributes: 
+    name: Niger
+    fedex_code: NE
+    number_of_orders: "0"
+    ufsi_code: "135"
+    id: "00000000135"
+- !ruby/object:Country 
+  attributes: 
+    name: Nigeria
+    fedex_code: NG
+    number_of_orders: "3"
+    ufsi_code: "136"
+    id: "00000000136"
+- !ruby/object:Country 
+  attributes: 
+    name: Norway
+    fedex_code: "NO"
+    number_of_orders: "2"
+    ufsi_code: "137"
+    id: "00000000137"
+- !ruby/object:Country 
+  attributes: 
+    name: Oman
+    fedex_code: OM
+    number_of_orders: "0"
+    ufsi_code: "138"
+    id: 00000000138
+- !ruby/object:Country 
+  attributes: 
+    name: Pakistan
+    fedex_code: PK
+    number_of_orders: "2"
+    ufsi_code: "139"
+    id: 00000000139
+- !ruby/object:Country 
+  attributes: 
+    name: Panama
+    fedex_code: PA
+    number_of_orders: "0"
+    ufsi_code: "140"
+    id: "00000000140"
+- !ruby/object:Country 
+  attributes: 
+    name: Papua New Guinea
+    fedex_code: PG
+    number_of_orders: "0"
+    ufsi_code: "141"
+    id: "00000000141"
+- !ruby/object:Country 
+  attributes: 
+    name: Paraguay
+    fedex_code: PY
+    number_of_orders: "0"
+    ufsi_code: "142"
+    id: "00000000142"
+- !ruby/object:Country 
+  attributes: 
+    name: Peru
+    fedex_code: PE
+    number_of_orders: "0"
+    ufsi_code: "143"
+    id: "00000000143"
+- !ruby/object:Country 
+  attributes: 
+    name: Philippines
+    fedex_code: PH
+    number_of_orders: "1"
+    ufsi_code: "144"
+    id: "00000000144"
+- !ruby/object:Country 
+  attributes: 
+    name: Pitcairn Islands
+    fedex_code: PN
+    number_of_orders: "0"
+    ufsi_code: "145"
+    id: "00000000145"
+- !ruby/object:Country 
+  attributes: 
+    name: Poland
+    fedex_code: PL
+    number_of_orders: "0"
+    ufsi_code: "146"
+    id: "00000000146"
+- !ruby/object:Country 
+  attributes: 
+    name: Portugal
+    fedex_code: PT
+    number_of_orders: "0"
+    ufsi_code: "147"
+    id: "00000000147"
+- !ruby/object:Country 
+  attributes: 
+    name: Qatar
+    fedex_code: QA
+    number_of_orders: "0"
+    ufsi_code: "148"
+    id: 00000000148
+- !ruby/object:Country 
+  attributes: 
+    name: Reunion Island
+    fedex_code: RE
+    number_of_orders: "0"
+    ufsi_code: "149"
+    id: 00000000149
+- !ruby/object:Country 
+  attributes: 
+    name: Romania
+    fedex_code: RO
+    number_of_orders: "0"
+    ufsi_code: "150"
+    id: "00000000150"
+- !ruby/object:Country 
+  attributes: 
+    name: Russia
+    fedex_code: RU
+    number_of_orders: "2"
+    ufsi_code: "151"
+    id: "00000000151"
+- !ruby/object:Country 
+  attributes: 
+    name: Rwanda
+    fedex_code: RW
+    number_of_orders: "0"
+    ufsi_code: "152"
+    id: "00000000152"
+- !ruby/object:Country 
+  attributes: 
+    name: St. Christopher & Nevis
+    fedex_code: KN
+    number_of_orders: "0"
+    ufsi_code: "153"
+    id: "00000000153"
+- !ruby/object:Country 
+  attributes: 
+    name: Saint Helena
+    fedex_code: SH
+    number_of_orders: "0"
+    ufsi_code: "154"
+    id: "00000000154"
+- !ruby/object:Country 
+  attributes: 
+    name: Saint Lucia
+    fedex_code: LC
+    number_of_orders: "0"
+    ufsi_code: "155"
+    id: "00000000155"
+- !ruby/object:Country 
+  attributes: 
+    name: Saint Pierre & Miquelon
+    fedex_code: PM
+    number_of_orders: "0"
+    ufsi_code: "156"
+    id: "00000000156"
+- !ruby/object:Country 
+  attributes: 
+    name: St. Vincent&The Grenadines
+    fedex_code: VC
+    number_of_orders: "0"
+    ufsi_code: "157"
+    id: "00000000157"
+- !ruby/object:Country 
+  attributes: 
+    name: San Marino
+    fedex_code: SM
+    number_of_orders: "0"
+    ufsi_code: "158"
+    id: 00000000158
+- !ruby/object:Country 
+  attributes: 
+    name: Sao Tome & Principe
+    fedex_code: ST
+    number_of_orders: "0"
+    ufsi_code: "159"
+    id: 00000000159
+- !ruby/object:Country 
+  attributes: 
+    name: Saudi Arabia
+    fedex_code: SA
+    number_of_orders: "4"
+    ufsi_code: "160"
+    id: "00000000160"
+- !ruby/object:Country 
+  attributes: 
+    name: Senegal
+    fedex_code: SN
+    number_of_orders: "2"
+    ufsi_code: "161"
+    id: "00000000161"
+- !ruby/object:Country 
+  attributes: 
+    name: Seychelles
+    fedex_code: SC
+    number_of_orders: "0"
+    ufsi_code: "162"
+    id: "00000000162"
+- !ruby/object:Country 
+  attributes: 
+    name: Sierra Leone
+    fedex_code: SL
+    number_of_orders: "0"
+    ufsi_code: "163"
+    id: "00000000163"
+- !ruby/object:Country 
+  attributes: 
+    name: Singapore
+    fedex_code: SG
+    number_of_orders: "9"
+    ufsi_code: "164"
+    id: "00000000164"
+- !ruby/object:Country 
+  attributes: 
+    name: Solomon Islands
+    fedex_code: SB
+    number_of_orders: "0"
+    ufsi_code: "165"
+    id: "00000000165"
+- !ruby/object:Country 
+  attributes: 
+    name: Somalia
+    fedex_code: SO
+    number_of_orders: "0"
+    ufsi_code: "166"
+    id: "00000000166"
+- !ruby/object:Country 
+  attributes: 
+    name: South Africa
+    fedex_code: ZA
+    number_of_orders: "10"
+    ufsi_code: "167"
+    id: "00000000167"
+- !ruby/object:Country 
+  attributes: 
+    name: Spain
+    fedex_code: ES
+    number_of_orders: "8"
+    ufsi_code: "168"
+    id: 00000000168
+- !ruby/object:Country 
+  attributes: 
+    name: Sri Lanka
+    fedex_code: LK
+    number_of_orders: "0"
+    ufsi_code: "169"
+    id: 00000000169
+- !ruby/object:Country 
+  attributes: 
+    name: Sudan
+    fedex_code: SD
+    number_of_orders: "0"
+    ufsi_code: "170"
+    id: "00000000170"
+- !ruby/object:Country 
+  attributes: 
+    name: Suriname
+    fedex_code: SR
+    number_of_orders: "0"
+    ufsi_code: "171"
+    id: "00000000171"
+- !ruby/object:Country 
+  attributes: 
+    name: Swaziland
+    fedex_code: SZ
+    number_of_orders: "0"
+    ufsi_code: "172"
+    id: "00000000172"
+- !ruby/object:Country 
+  attributes: 
+    name: Sweden
+    fedex_code: SE
+    number_of_orders: "13"
+    ufsi_code: "173"
+    id: "00000000173"
+- !ruby/object:Country 
+  attributes: 
+    name: Switzerland
+    fedex_code: CH
+    number_of_orders: "0"
+    ufsi_code: "174"
+    id: "00000000174"
+- !ruby/object:Country 
+  attributes: 
+    name: Syria
+    fedex_code: SY
+    number_of_orders: "0"
+    ufsi_code: "175"
+    id: "00000000175"
+- !ruby/object:Country 
+  attributes: 
+    name: Taiwan
+    fedex_code: TW
+    number_of_orders: "2"
+    ufsi_code: "176"
+    id: "00000000176"
+- !ruby/object:Country 
+  attributes: 
+    name: Tanzania
+    fedex_code: TZ
+    number_of_orders: "0"
+    ufsi_code: "177"
+    id: "00000000177"
+- !ruby/object:Country 
+  attributes: 
+    name: Thailand
+    fedex_code: TH
+    number_of_orders: "0"
+    ufsi_code: "178"
+    id: 00000000178
+- !ruby/object:Country 
+  attributes: 
+    name: Togo
+    fedex_code: TG
+    number_of_orders: "0"
+    ufsi_code: "179"
+    id: 00000000179
+- !ruby/object:Country 
+  attributes: 
+    name: Tonga
+    fedex_code: TO
+    number_of_orders: "0"
+    ufsi_code: "180"
+    id: 00000000180
+- !ruby/object:Country 
+  attributes: 
+    name: Trinidad and Tobago
+    fedex_code: TT
+    number_of_orders: "0"
+    ufsi_code: "181"
+    id: 00000000181
+- !ruby/object:Country 
+  attributes: 
+    name: Tristan da Cunha
+    fedex_code: 
+    number_of_orders: "0"
+    ufsi_code: "182"
+    id: 00000000182
+- !ruby/object:Country 
+  attributes: 
+    name: Tunisia
+    fedex_code: TN
+    number_of_orders: "0"
+    ufsi_code: "183"
+    id: 00000000183
+- !ruby/object:Country 
+  attributes: 
+    name: Turkey
+    fedex_code: TR
+    number_of_orders: "0"
+    ufsi_code: "184"
+    id: 00000000184
+- !ruby/object:Country 
+  attributes: 
+    name: Turks & Caicos Islands
+    fedex_code: TC
+    number_of_orders: "0"
+    ufsi_code: "185"
+    id: 00000000185
+- !ruby/object:Country 
+  attributes: 
+    name: Tuvalu
+    fedex_code: TV
+    number_of_orders: "0"
+    ufsi_code: "186"
+    id: 00000000186
+- !ruby/object:Country 
+  attributes: 
+    name: Wallis & Futuna Islands
+    fedex_code: WF
+    number_of_orders: "0"
+    ufsi_code: "187"
+    id: 00000000187
+- !ruby/object:Country 
+  attributes: 
+    name: Western Samoa
+    fedex_code: EH
+    number_of_orders: "0"
+    ufsi_code: "188"
+    id: 00000000188
+- !ruby/object:Country 
+  attributes: 
+    name: U.S.S.R
+    fedex_code: 
+    number_of_orders: "0"
+    ufsi_code: "189"
+    id: 00000000189
+- !ruby/object:Country 
+  attributes: 
+    name: Uganda
+    fedex_code: UG
+    number_of_orders: "0"
+    ufsi_code: "190"
+    id: 00000000190
+- !ruby/object:Country 
+  attributes: 
+    name: United Arab Emirates
+    fedex_code: AE
+    number_of_orders: "14"
+    ufsi_code: "191"
+    id: 00000000191
+- !ruby/object:Country 
+  attributes: 
+    name: Uruguay
+    fedex_code: UY
+    number_of_orders: "2"
+    ufsi_code: "192"
+    id: 00000000192
+- !ruby/object:Country 
+  attributes: 
+    name: Vanuatu
+    fedex_code: VU
+    number_of_orders: "0"
+    ufsi_code: "193"
+    id: 00000000193
+- !ruby/object:Country 
+  attributes: 
+    name: Vatican City
+    fedex_code: VA
+    number_of_orders: "0"
+    ufsi_code: "194"
+    id: 00000000194
+- !ruby/object:Country 
+  attributes: 
+    name: Venezuela
+    fedex_code: VE
+    number_of_orders: "0"
+    ufsi_code: "195"
+    id: 00000000195
+- !ruby/object:Country 
+  attributes: 
+    name: Vietnam
+    fedex_code: VN
+    number_of_orders: "0"
+    ufsi_code: "196"
+    id: 00000000196
+- !ruby/object:Country 
+  attributes: 
+    name: Yemen
+    fedex_code: YE
+    number_of_orders: "0"
+    ufsi_code: "197"
+    id: 00000000197
+- !ruby/object:Country 
+  attributes: 
+    name: Yugoslavia
+    fedex_code: 
+    number_of_orders: "0"
+    ufsi_code: "198"
+    id: 00000000198
+- !ruby/object:Country 
+  attributes: 
+    name: Zaire
+    fedex_code: 
+    number_of_orders: "0"
+    ufsi_code: "199"
+    id: 00000000199
+- !ruby/object:Country 
+  attributes: 
+    name: Zambia
+    fedex_code: ZM
+    number_of_orders: "0"
+    ufsi_code: "200"
+    id: "00000000200"
+- !ruby/object:Country 
+  attributes: 
+    name: Zimbabwe
+    fedex_code: ZW
+    number_of_orders: "0"
+    ufsi_code: "201"
+    id: "00000000201"
+- !ruby/object:Country 
+  attributes: 
+    name: South Korea
+    fedex_code: KR
+    number_of_orders: "0"
+    ufsi_code: "202"
+    id: "00000000202"
+- !ruby/object:Country 
+  attributes: 
+    name: Armenia
+    fedex_code: AM
+    number_of_orders: "0"
+    ufsi_code: "225"
+    id: "00000000203"
+- !ruby/object:Country 
+  attributes: 
+    name: Azerbaijan
+    fedex_code: AZ
+    number_of_orders: "0"
+    ufsi_code: "226"
+    id: "00000000204"
+- !ruby/object:Country 
+  attributes: 
+    name: Byelorussia (Belarus)
+    fedex_code: 
+    number_of_orders: "0"
+    ufsi_code: "227"
+    id: "00000000205"
+- !ruby/object:Country 
+  attributes: 
+    name: "Georgia, Republic Of"
+    fedex_code: GE
+    number_of_orders: "0"
+    ufsi_code: "229"
+    id: "00000000206"
+- !ruby/object:Country 
+  attributes: 
+    name: Kazakhstan
+    fedex_code: KZ
+    number_of_orders: "0"
+    ufsi_code: "230"
+    id: "00000000207"
+- !ruby/object:Country 
+  attributes: 
+    name: Kyrgyzstan
+    fedex_code: KG
+    number_of_orders: "0"
+    ufsi_code: "231"
+    id: 00000000208
+- !ruby/object:Country 
+  attributes: 
+    name: La Luia
+    fedex_code: 
+    number_of_orders: "0"
+    ufsi_code: "232"
+    id: 00000000209
+- !ruby/object:Country 
+  attributes: 
+    name: Lithvania
+    fedex_code: 
+    number_of_orders: "0"
+    ufsi_code: "233"
+    id: "00000000210"
+- !ruby/object:Country 
+  attributes: 
+    name: MocDavia
+    fedex_code: 
+    number_of_orders: "0"
+    ufsi_code: "234"
+    id: "00000000211"
+- !ruby/object:Country 
+  attributes: 
+    name: Tadzhikistan
+    fedex_code: 
+    number_of_orders: "0"
+    ufsi_code: "235"
+    id: "00000000212"
+- !ruby/object:Country 
+  attributes: 
+    name: Turkmenistan
+    fedex_code: TM
+    number_of_orders: "0"
+    ufsi_code: "236"
+    id: "00000000213"
+- !ruby/object:Country 
+  attributes: 
+    name: Ukraine
+    fedex_code: UA
+    number_of_orders: "0"
+    ufsi_code: "237"
+    id: "00000000214"
+- !ruby/object:Country 
+  attributes: 
+    name: Uzbekistan
+    fedex_code: UZ
+    number_of_orders: "0"
+    ufsi_code: "238"
+    id: "00000000215"
+- !ruby/object:Country 
+  attributes: 
+    name: Bosnia (Hercgovina)
+    fedex_code: BA
+    number_of_orders: "0"
+    ufsi_code: "239"
+    id: "00000000216"
+- !ruby/object:Country 
+  attributes: 
+    name: Croatia
+    fedex_code: HR
+    number_of_orders: "0"
+    ufsi_code: "240"
+    id: "00000000217"
+- !ruby/object:Country 
+  attributes: 
+    name: Serbia (Montenegro)
+    fedex_code: CS
+    number_of_orders: "0"
+    ufsi_code: "241"
+    id: 00000000218
+- !ruby/object:Country 
+  attributes: 
+    name: Macedonia
+    fedex_code: MK
+    number_of_orders: "0"
+    ufsi_code: "242"
+    id: 00000000219
+- !ruby/object:Country 
+  attributes: 
+    name: Slovenia
+    fedex_code: SI
+    number_of_orders: "0"
+    ufsi_code: "243"
+    id: "00000000220"
+- !ruby/object:Country 
+  attributes: 
+    name: Slovak Republic
+    fedex_code: SK
+    number_of_orders: "0"
+    ufsi_code: "244"
+    id: "00000000221"
+- !ruby/object:Country 
+  attributes: 
+    name: Czech Republic
+    fedex_code: CZ
+    number_of_orders: "0"
+    ufsi_code: "245"
+    id: "00000000222"
+- !ruby/object:Country 
+  attributes: 
+    name: Scotland
+    fedex_code: GB
+    number_of_orders: "2"
+    ufsi_code: "246"
+    id: "00000000223"
+- !ruby/object:Country 
+  attributes: 
+    name: Canary Islands
+    fedex_code: ES
+    number_of_orders: "0"
+    ufsi_code: "247"
+    id: "00000000224"
+- !ruby/object:Country 
+  attributes: 
+    name: British Forces Post Office
+    fedex_code: 
+    number_of_orders: "1"
+    ufsi_code: "280"
+    id: "00000000225"
+- !ruby/object:Country 
+  attributes: 
+    name: American Samoa
+    fedex_code: AS
+    number_of_orders: "0"
+    ufsi_code: "248"
+    id: "00000000226"
+- !ruby/object:Country 
+  attributes: 
+    name: Antarctica
+    fedex_code: AQ
+    number_of_orders: "0"
+    ufsi_code: "249"
+    id: "00000000227"
+- !ruby/object:Country 
+  attributes: 
+    name: Bouvet Island
+    fedex_code: BV
+    number_of_orders: "0"
+    ufsi_code: "250"
+    id: 00000000228
+- !ruby/object:Country 
+  attributes: 
+    name: British Indian Ocean Terri
+    fedex_code: IO
+    number_of_orders: "0"
+    ufsi_code: "251"
+    id: 00000000229
+- !ruby/object:Country 
+  attributes: 
+    name: Cambodia
+    fedex_code: KH
+    number_of_orders: "0"
+    ufsi_code: "252"
+    id: "00000000230"
+- !ruby/object:Country 
+  attributes: 
+    name: Christmas Island
+    fedex_code: CX
+    number_of_orders: "0"
+    ufsi_code: "253"
+    id: "00000000231"
+- !ruby/object:Country 
+  attributes: 
+    name: Cocos (keeling) Islands
+    fedex_code: CC
+    number_of_orders: "0"
+    ufsi_code: "254"
+    id: "00000000232"
+- !ruby/object:Country 
+  attributes: 
+    name: Eritrea
+    fedex_code: ER
+    number_of_orders: "0"
+    ufsi_code: "257"
+    id: "00000000233"
+- !ruby/object:Country 
+  attributes: 
+    name: "France, Metropolitan"
+    fedex_code: FR
+    number_of_orders: "0"
+    ufsi_code: "258"
+    id: "00000000234"
+- !ruby/object:Country 
+  attributes: 
+    name: French Southern Territorie
+    fedex_code: TF
+    number_of_orders: "0"
+    ufsi_code: "259"
+    id: "00000000235"
+- !ruby/object:Country 
+  attributes: 
+    name: Guam
+    fedex_code: GU
+    number_of_orders: "0"
+    ufsi_code: "260"
+    id: "00000000236"
+- !ruby/object:Country 
+  attributes: 
+    name: Heard And Mc Donald Island
+    fedex_code: HM
+    number_of_orders: "0"
+    ufsi_code: "261"
+    id: "00000000237"
+- !ruby/object:Country 
+  attributes: 
+    name: "Korea, Democratic People's"
+    fedex_code: 
+    number_of_orders: "0"
+    ufsi_code: "301"
+    id: 00000000238
+- !ruby/object:Country 
+  attributes: 
+    name: Marshall Islands
+    fedex_code: MH
+    number_of_orders: "0"
+    ufsi_code: "262"
+    id: 00000000239
+- !ruby/object:Country 
+  attributes: 
+    name: Mayotte
+    fedex_code: YT
+    number_of_orders: "0"
+    ufsi_code: "263"
+    id: "00000000240"
+- !ruby/object:Country 
+  attributes: 
+    name: Micronesia
+    fedex_code: FM
+    number_of_orders: "0"
+    ufsi_code: "304"
+    id: "00000000241"
+- !ruby/object:Country 
+  attributes: 
+    name: Moldova
+    fedex_code: MD
+    number_of_orders: "0"
+    ufsi_code: "265"
+    id: "00000000242"
+- !ruby/object:Country 
+  attributes: 
+    name: Myanmar
+    fedex_code: MM
+    number_of_orders: "0"
+    ufsi_code: "266"
+    id: "00000000243"
+- !ruby/object:Country 
+  attributes: 
+    name: Namibia
+    fedex_code: NA
+    number_of_orders: "0"
+    ufsi_code: "267"
+    id: "00000000244"
+- !ruby/object:Country 
+  attributes: 
+    name: Niue
+    fedex_code: NU
+    number_of_orders: "0"
+    ufsi_code: "268"
+    id: "00000000245"
+- !ruby/object:Country 
+  attributes: 
+    name: Norfolk Island
+    fedex_code: NF
+    number_of_orders: "0"
+    ufsi_code: "305"
+    id: "00000000246"
+- !ruby/object:Country 
+  attributes: 
+    name: Northern Mariana Islands
+    fedex_code: MP
+    number_of_orders: "0"
+    ufsi_code: "306"
+    id: "00000000247"
+- !ruby/object:Country 
+  attributes: 
+    name: Palau
+    fedex_code: PW
+    number_of_orders: "0"
+    ufsi_code: "271"
+    id: 00000000248
+- !ruby/object:Country 
+  attributes: 
+    name: Puerto Rico
+    fedex_code: US
+    number_of_orders: "0"
+    ufsi_code: "272"
+    id: 00000000249
+- !ruby/object:Country 
+  attributes: 
+    name: South Georgia And The Sout
+    fedex_code: GS
+    number_of_orders: "0"
+    ufsi_code: "310"
+    id: "00000000250"
+- !ruby/object:Country 
+  attributes: 
+    name: Svalbard And Jan Mayen Isl
+    fedex_code: SJ
+    number_of_orders: "0"
+    ufsi_code: "311"
+    id: "00000000251"
+- !ruby/object:Country 
+  attributes: 
+    name: Tajikistan
+    fedex_code: TJ
+    number_of_orders: "0"
+    ufsi_code: "275"
+    id: "00000000252"
+- !ruby/object:Country 
+  attributes: 
+    name: Tokelau
+    fedex_code: TK
+    number_of_orders: "0"
+    ufsi_code: "276"
+    id: "00000000253"
+- !ruby/object:Country 
+  attributes: 
+    name: U.S. Virgin Islands
+    fedex_code: VI
+    number_of_orders: "0"
+    ufsi_code: "278"
+    id: "00000000255"
+- !ruby/object:Country 
+  attributes: 
+    name: Western Sahara
+    fedex_code: 
+    number_of_orders: "0"
+    ufsi_code: "279"
+    id: "00000000256"
+- !ruby/object:Country 
+  attributes: 
+    name: "Congo, The Democratic Republic"
+    fedex_code: CD
+    number_of_orders: "0"
+    ufsi_code: "300"
+    id: "00000000257"
+- !ruby/object:Country 
+  attributes: 
+    name: "Lao People's Democratic Republic"
+    fedex_code: 
+    number_of_orders: "0"
+    ufsi_code: "302"
+    id: 00000000258
+- !ruby/object:Country 
+  attributes: 
+    name: "Macedonia, The Former Yugo"
+    fedex_code: MK
+    number_of_orders: "0"
+    ufsi_code: "303"
+    id: 00000000259
+- !ruby/object:Country 
+  attributes: 
+    name: Palestine
+    fedex_code: PS
+    number_of_orders: "0"
+    ufsi_code: "307"
+    id: "00000000260"
+- !ruby/object:Country 
+  attributes: 
+    name: Saint Vincent
+    fedex_code: VC
+    number_of_orders: "0"
+    ufsi_code: "308"
+    id: "00000000261"
+- !ruby/object:Country 
+  attributes: 
+    name: Slovakia Republic
+    fedex_code: SK
+    number_of_orders: "0"
+    ufsi_code: "309"
+    id: "00000000262"
+- !ruby/object:Country 
+  attributes: 
+    name: "Taiwan, Province Of China"
+    fedex_code: TW
+    number_of_orders: "0"
+    ufsi_code: "312"
+    id: "00000000263"

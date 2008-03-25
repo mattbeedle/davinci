@@ -1,0 +1,16 @@
+<div id="orders" class="yui-g">
+  <div>
+    <h2>Active Orders</h2>
+    <%= render :partial => @active_orders -%>
+    <% if @active_orders.blank? %>
+      You have no active orders.
+    <% end %>
+  </div>
+  <div>
+    <h2>Completed Orders</h2>
+    <%= render :partial => @past_orders -%>
+    <% if @past_orders.blank? %>
+      You have no completed orders.
+    <% end %>
+  </div>
+</div>

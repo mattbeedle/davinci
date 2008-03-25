@@ -1,0 +1,8 @@
+<div id="order" class="yui-g">
+  <h1>Order</h1>
+  <div class="homediv">
+    <h2>Status</h2>
+    <p><%= @order.order_status_code.name %></p>
+  </div>
+  <%= render :partial => 'summary', :locals => { :order => @order } %>
+</div>

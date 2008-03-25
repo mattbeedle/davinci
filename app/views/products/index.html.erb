@@ -1,0 +1,22 @@
+<div class="yui-g">
+  <h1>Products</h1>
+  <table id="products">
+    <th>
+      <td>Name</td>
+      <td>Cost ea</td>
+      <td>Quantity</td>
+    </th>
+    <% form_tag(cart_path, :method => :put) do %>
+      <%= hidden_field_tag :photo_id, @photo.to_param %>
+      <% for product in @products %>
+        <tr>
+          <td><%= product.name %></td>
+          <td><%= product.price %></td>
+          <td><label><%= select_tag "products[#{product.to_param}]", options_for_select(0..10) %></label></td>
+        </tr>
+      <% end %>
+      <tr>
+        <td colspan="3"><%= submit_tag 'Add to cart' %></td>
+    <% end %>
+  </table>
+</div>

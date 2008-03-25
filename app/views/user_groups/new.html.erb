@@ -1,0 +1,8 @@
+<div class="yui-g">
+  <%= error_messages_for :user_group %>
+  <% form_for @user_group do |f| %>
+    <%= render :partial => 'form', :locals => { :f => f } %>
+    <br/>
+    <%= submit_tag 'Create!' %>
+  <% end %>
+</div>

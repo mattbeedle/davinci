@@ -1,0 +1,18 @@
+<div id="navigation">
+    <%= link_to 'home', index_path %>&nbsp;|&nbsp;
+    <%= link_to 'my albums', user_albums_path(current_user) if logged_in? %>
+    <%= "&nbsp;|&nbsp;" if logged_in? %>
+    <%= link_to 'my groups', my_groups_user_path(current_user) if logged_in? %>
+    <%= "&nbsp;|&nbsp;" if logged_in? %>
+    <%= link_to 'notifications', notifications_path if logged_in? %>
+    <%= "(#{current_user.received_notifications.unread.length})" if logged_in? and current_user.received_notifications.unread.length > 0 %>
+    <%= "&nbsp;|&nbsp;" if logged_in? %>
+    <%= link_to 'login', login_path unless logged_in? %>
+    <%= link_to 'logout', logout_path if logged_in? %>
+    <% form_tag update_stylesheet_homes_path, :method => :put do %>
+      <fieldset>
+        <label><%= select_tag :stylesheet, options_for_select(['black', 'white']) %></label>
+        <%= submit_tag :submit %>
+      </fieldset>
+    <% end if display_form %>
+</div>

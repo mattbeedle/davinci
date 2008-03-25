@@ -1,0 +1,8 @@
+<div class="yui-g">
+    <%= error_messages_for :user, :album %>
+    <% form_for :album, @album, :url => user_albums_path(@user), :html => { :method => :post } do |f| %>
+    <%= render :partial => 'form', :locals => { :f => f } %>
+    <br/>
+    <%= submit_tag 'Create' %>
+    <% end %>
+</div>

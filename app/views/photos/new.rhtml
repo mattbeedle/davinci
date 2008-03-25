@@ -1,0 +1,9 @@
+<div class="yui-g">
+  <h2>Add a photo</h2>
+  <% form_for :photo, @photo, :url => user_album_photos_path(@user, @album),
+  :html => { :method => :post, :multipart => true } do |f| %>
+    <%= render :partial => 'form', :locals => { :f => f } %>
+    <br/>
+    <%= submit_tag 'Upload' %> or <%= link_to 'cancel', user_album_path(@user, @album) %>
+  <% end %>
+</div>

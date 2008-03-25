@@ -1,0 +1,13 @@
+<div class="yui-g">
+  <div id="geocodings">
+    <%= @map.div :width => "100%", :height => 450 %>
+    <div>
+      <%= will_paginate @photos %>
+      <div id="photos">
+        <%= render :partial => 'photo', :collection => @photos %>
+      </div>
+      <br clear="all"/>
+      <%= will_paginate @photos %>
+    </div>
+  </div>
+</div>

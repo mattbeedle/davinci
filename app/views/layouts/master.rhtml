@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <title><%= yield :title %></title>
+    <link rel="SHORTCUT ICON" href="/images/avatar.ico">
+    <%= javascript_include_tag :defaults, 'slider', 'lightbox', 'photo_preview', 'lowpro.packed.js' %>
+    <%= stylesheet_link_tag 'lightbox', 'reset-fonts-grids', 'master' %>
+    <% unless (@album.blank? or @album.theme.blank?) or @no_theme or @album.theme == 'default' %>
+      <%= stylesheet_link_tag "themes/#{@album.theme}" %>
+    <% else %>
+      <%= stylesheet_link_tag session[:stylesheet] || 'black' %>
+    <% end %>
+    <%= Mapstraction.header(:google) if @map %>
+    <%= @map.to_html if @map %>
+  </head>
+  <body>
+    <div class="yui-t7" id="doc">
+      <div id="hd">
+        <%= link_to(image_tag("da.vin.ci-#{session[:stylesheet]}.png", :id => 'logo'), index_path) unless session[:stylesheet].blank? %>
+        <%= link_to(image_tag('da.vin.ci-black.png', :id => 'logo'), index_path) if session[:stylesheet].blank? %>
+        <%= render :partial => 'layouts/navigation',
+          :locals => { :display_form => ((@album.blank? or @album.theme.blank?) or @no_theme) } %>
+      </div>
+      <div id="bd">
+        <div>
+          <%= '<span id="notice">' + flash[:notice] + '</span>' unless flash[:notice].blank? %>
+          <%= '<span id="error">' + flash[:error] + '</span>' unless flash[:error].blank? %>
+        </div>
+        <%= yield %>
+      </div>
+      <div id="ft">
+        Copyright da.vin.ci ltd 2008
+      </div>
+    </div>
+  </body>
+</html>

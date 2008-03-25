@@ -1,0 +1,8 @@
+<div class="yui-g">
+  <div id="albums">
+    <%= link_to 'New Album', new_user_album_path(@user) if logged_in? %>
+    <%= will_paginate @albums %>
+    <%= render :partial => 'album', :collection => @albums %>
+    <%= will_paginate @albums %>
+  </div>
+</div>

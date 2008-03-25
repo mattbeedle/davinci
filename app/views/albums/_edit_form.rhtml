@@ -1,0 +1,38 @@
+<fieldset>
+  <label>Feature this album?</label><br/>
+  Yes&nbsp;<%= f.radio_button :featured, 1 %>&nbsp;&nbsp;No&nbsp;<%= f.radio_button :featured, 0 %>
+</fieldset>
+<fieldset>
+  <label>Tags<br/><%= text_field_tag :tags, @album.tag_list, :size => 50 %></label>
+</fieldset>
+<br/>
+<fieldset>
+  <legend>Look and Feel</legend>
+  <label>Style<br/><%= select :album, :style, APP_CONFIG['album_styles'].split(',') %></label><br/>
+  <label>Theme<br/><%= select :album, :theme, APP_CONFIG['album_themes'].split(',') %></label><br/>
+  <label><%= f.check_box :clean %> Clean - hide description and update time on homepage</label><br/>
+  <label><%= f.check_box :camera_info %> Camera Info - display camera information if it is available</label><br/>
+  <label><%= f.check_box :display_filenames %> If no photo description is available, display filename instead</label><br/>
+  <label>Sort photos by<br/><%= f.select :sort_by,
+    ['position', ['caption', 'description'], ['filename', 'original_filename'], ['uploaded', 'created_at'], 
+      ['modified', 'updated_at'], ['taken (if available)','taken']] %></label><br/>
+  <label>Sort direction<br/><%= f.select :sort_direction, [['Descending', 'DESC'], ['Ascending', 'ASC']] %></label><br/>
+</fieldset>
+<fieldset>
+  <legend>Social</legend>
+  <label><%= f.check_box :friends_edit %> Friends can edit my descriptions and keywords</label><br/>
+  <label><%= f.check_box :family_edit %> Family can edit my descriptions and keywords</label><br/>
+  <label><%= f.check_box :commentable %> Allow users to comment on photos within this album</label>
+</fieldset>
+<fieldset>
+  <legend>Photo Sharpening</legend>
+  <label>Unsharp Radius<br/><%= f.text_field :unsharp_radius %></label><br/>
+  <label>Unsharp Sigma<br/><%= f.text_field :unsharp_sigma %></label><br/>
+  <label>Unsharp Amount<br/><%= f.text_field :unsharp_amount %></label><br/>
+  <label>Unsharp Threshold<br/><%= f.text_field :unsharp_threshold %></label>
+</fieldset>
+<% if @current_user.has_role? 'pro' %>
+<fieldset>
+  <label>Default Photo Price<br/><%= f.text_field :default_photo_price %></label>
+</fieldset>
+<% end %>

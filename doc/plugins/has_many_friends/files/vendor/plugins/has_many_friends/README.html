@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: README</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>README</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>vendor/plugins/has_many_friends/README
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Sun Dec 09 10:49:09 +0000 2007</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+<a href="../../../../classes/HasManyFriends.html">HasManyFriends</a> -
+Steve Ehrenberg - <a href="http://dnite.org">dnite.org</a>
+</p>
+<h6>=============================================</h6>
+<p>
+has_many_friends is a plugin based off of the friendship_plugin that can be
+found here (<a
+href="http://svn.webwideconsulting.com/svn/friendship_plugin">svn.webwideconsulting.com/svn/friendship_plugin</a>/).
+This version of the plugin adds some features I wanted as well as
+eliminates the need for 2 friendship rows created in the table. The goal is
+to make it relatively seamless for anyone to create a fully functional
+friends system for their application.
+</p>
+<p>
+Setup
+</p>
+<h5></h5>
+<p>
+To use this plugin, you will first need to install it. This can be done
+quite simply with the following command.
+</p>
+<pre>
+   script/plugin install http://svn.dnite.org/has_many_friends
+</pre>
+<p>
+We&#8216;ll need to generate the model and migration for your friendship
+table.
+</p>
+<pre>
+   script/generate hmf_friendship_model Friendship
+   rake db:migrate
+</pre>
+<p>
+If you will be running tests, you may need to prepare your test database
+again.
+</p>
+<pre>
+   rake db:test:prepare
+</pre>
+<p>
+You should be just about set! All you need to do is add the following
+method to your User model.
+</p>
+<pre>
+   class User &lt; ActiveRecord::Base
+     has_many_friends
+     # the rest of your user model ...
+     # ...
+   end
+</pre>
+<p>
+Usage
+</p>
+<h5></h5>
+<p>
+After the plugin is installed. All of these super cool methods will be
+attached to any user.
+</p>
+<p>
+These methods are the actual associations. They return what you&#8216;d
+expect.
+</p>
+<pre>
+   user.friends_for_me
+   user.friends_by_me
+   user.pending_friends_for_me
+   user.pending_friends_by_me
+</pre>
+<p>
+Again, these will return what you would expect them to return.
+</p>
+<pre>
+   user.friends
+   user.pending_friends
+   user.pending_or_accepted_friends
+</pre>
+<p>
+## The following 3 methods were changed as of revision 8. They have been
+listed here ## as these methods, but for some reason, i never changed their
+names in the actual ## plugin file. If your using a pre-8 version and
+things broke for you, use the new ## method names in your application.
+Sorry for the inconvenience. Returns true if user is friends with friend.
+</p>
+<pre>
+   user.is_friends_with? friend
+   user.is_pending_friends_with? friend
+   user.is_friends_or_pending_with? friend
+</pre>
+<p>
+Creates, deletes or updates friendship requests.
+</p>
+<pre>
+   user.request_friendship_with friend
+   user.delete_friendship_with friend
+   user.accept_friendship_with friend
+</pre>
+<p>
+Bypass the request and just make a friend.
+</p>
+<pre>
+   user.become_friends_with! friend
+</pre>
+<p>
+Returns the friendship object (good for looking up extra attributes about
+the friendship, like when it was accepted and such.
+</p>
+<pre>
+   user.friendship friend
+</pre>
+<p>
+Copyright (c) 2007 Steve Ehrenberg, released under the MIT license
+</p>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

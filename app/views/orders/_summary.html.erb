@@ -1,0 +1,43 @@
+<div id="addresses" class="homediv">
+      <div id="shipping">
+        <h2>Shipping Address</h2>
+        <%= order.shipping_address.street %>
+        <br/>
+        <%= order.shipping_address.locality %>
+        <br/>
+        <%= order.shipping_address.region %>
+        <br/>
+        <%= order.shipping_address.postal_code %>
+      </div>
+      <div id="billing">
+        <h2>Billing Address</h2>
+        <%= order.billing_address.street %>
+        <br/>
+        <%= order.billing_address.locality %>
+        <br/>
+        <%= order.billing_address.region %>
+        <br/>
+        <%= order.billing_address.postal_code %>
+      </div>
+    </div>
+    <div id="billing_details" class="homediv">
+      <h2>Card Details</h2>
+      Card number: <%= order.order_account.cc_number %>
+      <br/>
+      Expires: <%= order.order_account.expiration_month %>
+      <%= order.order_account.expiration_year %>
+    </div>
+    <div id="shipping_options" class="homediv">
+      <h2>Shipping</h2>
+      <%= order.order_shipping_type.name %>
+    </div>
+    <div id="items" class="homediv">
+      <h2>Items</h2>
+      <%= render :partial => 'carts/order_line_item', :collection => order.order_line_items %>
+    </div>
+    <div id="totals" class="homediv">
+      <h2>Total</h2>
+      Total: $<%= order.product_cost %>
+      <br/>
+      Shipping: $<%= order.shipping_cost %>
+    </div>

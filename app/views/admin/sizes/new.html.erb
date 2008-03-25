@@ -1,0 +1,9 @@
+<div class="yui-g">
+  <h1>New Size</h1>
+  <%= error_messages_for :size %>
+  <% form_for :size, @size, :url => admin_sizes_path do |f| %>
+    <%= render :partial => 'admin/sizes/form', :locals => { :f => f } %>
+    <br/>
+    <%= submit_tag :create %> or <%= link_to 'cancel', admin_sizes_path %>
+  <% end %>
+</div>

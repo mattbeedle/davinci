@@ -1,0 +1,14 @@
+<div class="yui-g">
+  <div class="homediv">
+    <% form_tag payment_path do %>
+      <fieldset>
+        <label>Card Type<br/><%= select_tag :type, options_for_select(['visa', 'maestro']) %></label><br/>
+        <label>Number<br/><%= text_field_tag :number %></label><br/>
+        <label>Expires<br/><%= date_select :expires, nil, :discard_day => true %></label><br/>
+        <label>First Name<br/><%= text_field_tag :first_name %></label><br/>
+        <label>Last Name<br/><%= text_field_tag :last_name %></label>
+      </fieldset><br/>
+      <%= submit_tag 'Join' %> or <%= link_to 'cancel', user_path(@current_user) %>
+    <% end %>
+  </div>
+</div>

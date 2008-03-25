@@ -1,0 +1,155 @@
+<div id="home">
+
+  <% if logged_in? %>
+    <p><%= link_to 'Edit my homepage settings', edit_homepage_settings_path %></p>
+  <% end %>
+
+  <% if @user.display_news? %>
+    <div id="news" class="homediv">
+      <span class="close">
+        <%= link_to_function 'remove', nil do |page|
+          page[:news].remove
+        end %>
+      </span>
+      <h2>News</h2>
+      <p>Here we are, da.vin.ci has finally been launched.  The best photographical innovation since the invention of the camera.  We really hope you like it.
+      Please <%= link_to 'send us feedback', contact_us_path %> and let us know how we can improve.  Creating an easy way to move your photos from other sites like flickr, zoomr and smugmug is top of our to-do list, but don't worry, we will also be building tools to move the other way too!
+      Just as long as you find the site that's best for you.</p>
+    </div>
+  <% end %>
+
+  <% if logged_in? and current_user == @user and current_user.display_welcome? %>
+    <div id="welcome" class="homediv">
+      <span class="close">
+        <%= link_to_function 'remove', nil do |page|
+          page[:welcome].remove
+        end %>
+      </span>
+      <div class="inner">
+        <p>Hi <%= @user.login %>, welcome back!  We've missed you.  Some more really twee text will go here later</p>
+        <% if not @user.trial_over? %>
+          <p>
+          You have <strong><%= @user.trial_days_remaining %></strong> days remaining of your free trial.
+          We really hope you liked our site.
+          If you would like to continue using it <%= link_to 'you can sign up for a year here.', new_payment_path %>
+          </p>
+        <% elsif @user.paid? %>
+          <p>You have <%= @user.paid_days_remaining %> days remaining until renewal.</p>
+        <% end %>
+        <p>Why not <%= link_to 'invite', new_user_invitation_path(@user) %> your friends to use da.vin.ci.  For every 10 you invitations which result in a new registration, you get a year's free membership!</p>
+      </div>
+    </div>
+  <% end %>
+
+  <% if (logged_in? and current_user == @user) or (not @user.bio.blank? or not @user.photo.blank?) and
+  @user.display_bio? %>
+  <div id="bio" class="homediv">
+    <span class="close">
+      <%= link_to_function 'remove', nil do |page|
+        page[:bio].remove
+      end %>
+    </span>
+      <h2>Bio <%= '- ' + link_to('edit', edit_user_path(@user)) if logged_in? and current_user == @user %></h2>
+      <div class="inner">
+        <%= link_to image_tag(user_album_photo_path(:user_id => @user, :album_id => @user.photo.album,
+                                                    :id => @user.photo,
+                                                    :size => 'albumcover')+'.jpg', :align => 'texttop'),
+                                                    user_album_photo_path(@user, @user.photo.album, @user.photo) unless @user.photo.blank? %>
+        <%= image_tag('no-image-thumbnail.jpg', :align => 'texttop') if @user.photo.blank? %>
+        <% unless @user.bio.blank? %>
+          <%= @user.bio %>
+          <% else if logged_in? and current_user == @user %>
+            You haven't written anything about yourself yet.
+            Why not <%= link_to 'write something', edit_user_path(@user) %> now?
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+  <% if (logged_in? and current_user == @user) or @user.albums.featured.length > 0 and 
+    @user.display_featured_albums? %>
+    <div id="featured_albums" class="homediv">
+      <span class="close">
+        <%= link_to_function 'remove', nil do |page|
+          page[:featured_albums].remove
+        end %>
+      </span>
+      <h2>Featured Albums</h2>
+      <%= render :partial => @user.albums.featured %>
+      <% if @user.albums.featured.blank? %>
+        <p>There are no featured albums at present.</p>
+      <% end %>
+    </div>
+  <% end %>
+
+  <% if (logged_in? and current_user == @user) or @user.friends.length > 0 or @user.family.length > 0 and 
+  @user.display_relationships? %>
+  <div id="friends" class="homediv">
+    <span class="close">
+      <%= link_to_function 'remove', nil do |page|
+        page[:friends].remove
+      end %>
+    </span>
+    <h2>Friends and Family</h2>
+    <div class="inner">
+      <%= 'Friends: ' + render(:partial => 'friendships/friend',
+                               :collection => @user.friends) if @user.friends.length > 0 %><br/>
+      <%= 'Family: ' + render(:partial => 'friendships/friend',
+        :collection => @user.family) if @user.family.length > 0 %>
+    </div>
+  </div>
+  <% end %>
+
+  <% if (logged_in? and current_user == @user) or @user.user_groups.length > 0 and 
+    @user.display_groups? %>
+    <div id="user_groups" class="homediv">
+      <span class="close">
+        <%= link_to_function 'remove', nil do |page|
+          page[:user_groups].remove
+        end %>
+      </span>
+      <h2>Photo Communities</h2>
+      <div class="inner">
+        <% @user.user_groups.each do |user_group| %>
+          <span class="user_group"><%= link_to user_group.name, user_group_path(user_group) %></span>
+          <%= '&nbsp;|&nbsp;' unless user_group == @user.user_groups.last %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+  <% if (logged_in? and current_user == @user) or @user.tags.length > 0 and @user.display_tags? %>
+    <div id="tags" class="homediv">
+      <span class="close">
+        <%= link_to_function 'remove', nil do |page| 
+          page[:tags].remove
+        end %>
+      </span>
+      <h2>Tags</h2>
+      <div class="inner">
+        <% tag_cloud @user.tags, %w(css1 css2 css3 css4) do |tag, css_class| %>
+          <span class="<%= css_class %>"><%= link_to tag.name, tag_path(tag) %></span>
+          <%= '&nbsp;|&nbsp;' unless tag == @user.tags.last %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+  <% if (logged_in? and current_user == @user) or @user.albums.length > 0 and @user.display_albums? %>
+    <div id="my_albums" class="homediv">
+      <span class="close">
+        <%= link_to_function 'remove', nil do |page| 
+          page[:my_albums].remove
+        end %>
+      </span>
+      <h2>Albums</h2>
+      <div class="inner">
+        <% if logged_in? and current_user == @user and @user.albums.length < 1 %>
+          <p>You don't have any albums yet.  Why don't you <%= link_to 'create one now', new_user_album_path(@user) %>?</p>
+        <% end %>
+        <%= render :partial => @user.albums %>
+      </div>
+    </div>
+  <% end %>
+</div>

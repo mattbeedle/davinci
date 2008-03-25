@@ -1,0 +1,6 @@
+<fieldset>
+    <label>Name:<br/><%= f.text_field :name %></label><br/>
+    <label>Description:<br/><%= f.text_area :description, :cols => 50, :rows => 5 %></label><br/>
+    <label>Privacy:<br/><%= f.select :privacy_type, ['public', 'protected', 'private'] %></label><br/>
+    <label>Password (if album is protected):<br/><%= f.password_field :password %></label>
+</fieldset>

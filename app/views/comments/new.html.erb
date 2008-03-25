@@ -1,0 +1,10 @@
+<div class="yui-g">
+  <% form_for :comment, @comment, :url => user_album_photo_comments_path(
+  params[:user_id], params[:album_id], params[:photo_id]) do |f| %>
+    <fieldset>
+      <label>Comment:<br/><%= f.text_area :body, :cols => 60, :rows => 5 %></label>
+    </fieldset><br/>
+    <%= submit_tag 'Submit' %> or <%= link_to 'cancel', user_album_photo_path(params[:user_id],
+      params[:album_id], params[:photo_id]) %>
+  <% end %>
+</div>

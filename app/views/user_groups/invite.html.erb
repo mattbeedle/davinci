@@ -1,0 +1,15 @@
+<div class="yui-g">
+  <% if @relations.length > 0 %>
+    <% form_tag invite_user_group_memberships_path(@user_group) do %>
+      <fieldset>
+        <% @relations.each do |relation| %>
+          <label><%= relation.login %>&nbsp;<%= check_box :users, relation.id %></label><br/>
+        <% end %>
+      </fieldset>
+      <br/>
+      <%= submit_tag :invite %>
+    <% end %>
+  <% else %>
+    <p>All of your friends are already members of this group.</p>
+  <% end %>
+</div>

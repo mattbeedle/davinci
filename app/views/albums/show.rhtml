@@ -1,0 +1,16 @@
+<div class="yui-g">
+  <div id="album">
+    <%= @album.name %>
+    <div id="admin-links">
+      <%= link_to 'Add a photo', new_user_album_photo_path(@user, @album) %>
+      <%= link_to 'Edit album', edit_user_album_path(@user, @album) %>
+      <%= link_to 'Delete album', user_album_path(@user, @album), :method => :delete, :confirm => 'Are you sure?' %>
+      <%= link_to 'Map It!', user_album_geocodings_path(@user, @album) %>
+    </div>
+    <div id="photos">
+      <%= will_paginate @photos %>
+      <%= render :partial => 'photo', :collection => @photos %>
+      <%= will_paginate @photos %>
+    </div>
+  </div>
+</div>

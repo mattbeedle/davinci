@@ -1,0 +1,8 @@
+<div class="yui-g">
+  <%= error_messages_for :user %>
+  <% form_for :user, @user, :url => user_path(@user), :html => { :method => :put } do |f| %>
+    <%= render :partial => 'form', :locals => { :f => f } %>
+    <br/>
+    <%= submit_tag 'Update' %>
+  <% end %>
+</div>

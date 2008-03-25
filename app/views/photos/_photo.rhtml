@@ -1,0 +1,4 @@
+<%= link_to(image_tag(user_album_photo_path({:user_id => photo.album.user, :album_id => photo.album, :id => photo,
+                      :size => size, :timestamp => Time.now.to_i}.merge(@effects || {})) + '.jpg',
+                      :width => width || nil, :height => height || nil),
+                    user_album_photo_path(photo.album.user, photo.album, photo)) %>

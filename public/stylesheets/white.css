@@ -1,0 +1,20 @@
+body {
+    background: white;
+    color: 565656;
+}
+
+a {
+    color: black;
+}
+
+span#notice {
+    color: black;
+}
+
+span#error {
+    color: red;
+}
+
+div.homediv {
+    background: #cdcdcd;
+}

@@ -1,0 +1,8 @@
+<div class="yui-g">
+  <% form_for :notification_type, @notification_type, :url => admin_notification_type_path(@notification_type),
+    :html => { :method => :put } do |f| %>
+      <%= render :partial => 'form', :locals => { :f => f } %>
+      <br/>
+      <%= submit_tag :update %>
+    <% end %>
+</div>

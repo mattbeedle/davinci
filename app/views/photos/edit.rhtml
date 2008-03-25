@@ -1,0 +1,73 @@
+<div class="yui-g">
+  <div id="edit-photo">
+    <div id="preview">
+      <%= render :partial => 'photo', :locals => { :photo => @photo, :size => 'preview',
+        :width => @photo.width < 500 ? @photo.width : 500, :height => @photo.height } %>
+    </div>
+    <div id="controls" <%= "style=\"display:none;\"" unless is_owner?(@user) %>>
+      <div class="homediv">
+        <h2>Controls</h2>
+        <ul id="tabnav">
+          <li><%= link_to 'Basic Fixes', edit_user_album_photo_path(:user_id => @user, :album_id => @album,
+                                                                    :id => @photo) %></li>
+          <li><%= link_to 'Tuning', edit_user_album_photo_path(:user_id => @user, :album_id => @album,
+                                                               :id => @photo, :mode => '2') %></li>
+          <li><%= link_to 'Effects', edit_user_album_photo_path(:user_id => @user, :album_id => @album,
+                                                                :id => @photo, :mode => '3') %></li>
+        </ul>
+        <div id="tuning" style="display:<%= params[:mode] == '2' ? 'block' : 'none' %>;">
+          <%= render :partial => 'controls_tuning', :locals => { :user => @user, :album => @album, :photo => @photo } %>
+        </div>
+        <div id="effects" style="display:<%= params[:mode] == '3' ? 'block' : 'none' %>;">
+          <%= render :partial => 'controls_effects', :locals => { :user => @user, :album => @album, :photo => @photo } %>
+        </div>
+        <div id="fixes" style="display:<%= (params[:mode].blank? || params[:mode] == '1') ? 'block' : 'none' %>;">
+          <%= render :partial => 'controls_fixes', :locals => { :user => @user, :album => @album, :photo => @photo } %>
+        </div>
+      </div>
+    </div>
+    <br clear="all"/>
+    <div id="form" class="homediv">
+      <% form_tag user_album_photo_path(@user, @album, @photo), :method => :put, :multipart => true do %>
+        <%= hidden_field :sepia, :threshold %>
+        <%= hidden_field :solarize, :threshold %>
+        <%= hidden_field :quantize, :colors %>
+        <%= hidden_field :quantize, :colorspace, :value => 'GRAY' %>
+        <%= hidden_field :posterize, :levels %>
+        <%= hidden_field :charcoal, :radius %>
+        <%= hidden_field :charcoal, :sigma %>
+        <%= hidden_field_tag :despeckle %>
+        <%= hidden_field_tag :enhance %>
+        <%= hidden_field :modulate, :brightness %>
+        <%= hidden_field :modulate, :saturation %>
+        <%= hidden_field :modulate, :hue %>
+        <%= hidden_field :oil_paint, :radius %>
+        <%= hidden_field_tag :negate %>
+        <% fields_for :photo, @photo do |photo| %>
+          <fieldset>
+            <label>Description:<br/><%= photo.text_area :description, :cols => 50, :rows => 5 %></label>
+            <br/>
+            <label>Private photo?</label><br/>
+            <label>Yes&nbsp;<%= photo.radio_button :private, true %></label>
+            <label>No&nbsp;<%= photo.radio_button :private, false %></label>
+            <br/>
+            <label>Tags:<br/><%= text_area_tag :tags, @photo.tag_list, :cols => 50, :rows => 5 %></label>
+          </fieldset>
+          <% if @current_user.has_role? 'pro' %>
+            <fieldset>
+              <legend>Pro Options</legend>
+              <label>Price:<br/><%= photo.text_field :price %></label><br/>
+              <label>Watermark:<br/><%= file_field_tag :watermark %></label><br/>
+              <label>Watermark position:<br/>
+                <%= select_tag :watermark_position, options_for_select(
+                ['Center', 'Top', 'Top Right', 'Right', 'Botton Right', 'Bottom', 'Bottom Left', 'Left', 'Top Left']) %>
+              </label>
+            </fieldset>
+          <% end %>
+        <% end %>
+        <br/>
+        <%= submit_tag 'Apply Changes!' %> or <%= link_to 'cancel', user_album_photo_path(@user, @album, @photo) %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="yui-g">
+  <% form_for(:order_shipping_type, :url => set_shipping_cart_path, :html => { :method => :put }) do |f| %>
+    <fieldset>
+      <% for order_shipping_type in @order_shipping_types %>
+        <label>
+          <%= radio_button_tag :order_shipping_type_id, order_shipping_type.id %> <%= order_shipping_type.name %>
+        </label>
+        <br/>
+      <% end %>
+    </fieldset>
+    <br/>
+    <%= submit_tag :next %>
+  <% end %>
+</div>

@@ -1,0 +1,26 @@
+development:
+  standard_price: 29.95
+  power_price: 49.95
+  pro_price: 99.95
+  trial_length: 30
+  invitations: 10
+  album_styles: viewer controlled,davinci,traditional,all thumbs,slideshow,journal,filmstrip,critique
+  album_themes: default,blue,green,pink,soccer
+
+test:
+  standard_price: 29.95
+  power_price: 49.95
+  pro_price: 99.95
+  trial_length: 30
+  invitations: 10
+  album_styles: viewer controlled,davinci,traditional,all thumbs,slideshow,journal,filmstrip,critique
+  album_themes: default,blue,green,pink,soccer
+
+production:
+  standard_price: 29.95
+  power_price: 49.95
+  pro_price: 99.95
+  trial_length: 30
+  invitations: 10
+  album_styles: viewer controlled,davinci,traditional,all thumbs,slideshow,journal,filmstrip,critique
+  album_themes: default,blue,green,pink,soccer

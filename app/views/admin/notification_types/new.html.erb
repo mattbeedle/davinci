@@ -1,0 +1,10 @@
+<div class="yui-g">
+  <div id="new_notification_type">
+    <%= error_messages_for :notification_type %>
+    <% form_for :notification_type, @notification_type, :url => admin_notification_types_path do |f| %>
+      <%= render :partial => 'form', :locals => { :f => f } %>
+      <br/>
+      <%= submit_tag :create %> or <%= link_to 'cancel', admin_notification_types_path %>
+    <% end %>
+  </div>
+</div>

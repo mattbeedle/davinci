@@ -1,0 +1,12 @@
+<div id="despeckle">
+  <h3>Despeckle</h3>
+  <%= check_box_tag :despeckle_photo, 1, false, 
+    :onclick => "$('despeckle').value = this.checked ? 1 : 0",
+    :onchange => "updatePreview('#{user.to_param}', '#{album.to_param}', '#{photo.to_param}');" %>
+</div>
+<div id="enhance">
+  <h3>Enhance</h3>
+  <%= check_box_tag :enhance_photo, 1, false,
+    :onclick => "$('enhance').value = this.checked ? 1 : 0",
+    :onchange => "updatePreview('#{user.to_param}', '#{album.to_param}', '#{photo.to_param}');" %>
+</div>

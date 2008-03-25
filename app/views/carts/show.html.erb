@@ -1,0 +1,25 @@
+<div class="yui-g">
+  <h1>Cart</h1>
+  <% unless @cart.empty? %>
+    <div id="items">
+      <% for item in @cart.items %>
+        <div class="item">
+          <p>
+          <%= render :partial => 'photos/photo', :locals => { :photo => Photo.find(item.photo_id),
+            :size => 'thumbnail', :width => 100, :height => 100 } %>
+          <%= item.quantity %>x <%= item.item.name %>
+          </p>
+        </div>
+      <% end %>
+    </div>
+    <div id="totals">
+      <p>total: $<%= @cart.total %></p>
+    </div>
+    <p>
+    <%= link_to 'Checkout', checkout_cart_path %> |
+    <%= link_to 'Empty cart', cart_path, :method => :delete, :confirm => 'Are you sure?' %>
+    </p>
+  <% else %>
+    <p>Your cart is empty</p>
+  <% end %>
+</div>

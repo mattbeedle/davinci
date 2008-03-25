@@ -1,0 +1,51 @@
+<div class="yui-g">
+  <div id="pending_friends">
+    <h2>Pending Friends</h2>
+    <%= "You currently have no pending friend requests" if (@pending_friends_for_me + @pending_friends_by_me).length < 1 %>
+    <% for friend in @pending_friends_by_me %>
+      <div class="friend">
+        <%= link_to friend.login, user_path(friend) %>
+      </div>
+    <% end %>
+    <% for friend in @pending_friends_for_me %>
+      <div class="friend">
+        <%= link_to friend.login, user_path(friend) %> -
+        <%= link_to 'accept', user_friend_path(@user, friend), :method => :put %> |
+        <%= link_to 'decline', user_friend_path(@user, friend), :method => :delete %>
+      </div>
+    <% end %>
+  </div>
+  <div id="friends">
+    <h2>Friends</h2>
+    <%= "You currently have no friends" if @friends.length < 1 %>
+    <% for friend in @friends %>
+      <div class="friend">
+        <%= link_to friend.login, user_path(friend) %>
+      </div>
+    <% end %>
+  </div>
+  <div id="pending_family">
+    <h2>Pending Family</h2>
+    <%= "You currently have no pending family requests" if (@pending_family_for_me + @pending_family_by_me).length < 1 %>
+    <% for family_member in @pending_family_for_me %>
+      <div class="family_member">
+        <%= link_to family_member.login, user_path(family_member) %>
+        <%= link_to 'accept', user_friend_path(@user, family_member), :method => :put %> |
+        <%= link_to 'decline', user_friend_path(@user, family_member), :method => :put %>
+      </div>
+    <% end %>
+    <% for family in @pending_family_by_me %>
+      <div class="family_member">
+        <%= link_to family.login, user_path(family) %>
+      </div>
+    <% end %>
+  </div>
+  <div id="family">
+    <h2>Family</h2>
+    <%= "You currently have no family" if @family.length < 1 %>
+    <% for family_member in @family %>
+      <div class="family_member">
+        <%= link_to family_member.login, user_path(family_member) %>
+      </div>
+    <% end %>
+</div>

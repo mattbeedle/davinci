@@ -1,0 +1,12 @@
+<div class="yui-g">
+  <div id="notification_type">
+    <h2><%= @notification_type.name %></h2>
+    <p><%= @notification_type.subject %></p>
+    <p><%= @notification_type.description %></p>
+    <p><%= @notification_type.notifyable_type %></p>
+  </div>
+  <p><%= link_to 'edit', edit_admin_notification_type_path(@notification_type) %></p>
+  <p><%= link_to 'delete', admin_notification_type_path(@notification_type), :method => :delete, 
+    :confirm => 'Are you sure?' %></p>
+  <p><%= link_to 'list', admin_notification_types_path %></p>
+</div>

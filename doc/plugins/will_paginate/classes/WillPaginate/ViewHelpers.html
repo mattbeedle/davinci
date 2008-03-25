@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: WillPaginate::ViewHelpers</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">WillPaginate::ViewHelpers</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/vendor/plugins/will_paginate/lib/will_paginate/view_helpers_rb.html">
+                vendor/plugins/will_paginate/lib/will_paginate/view_helpers.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h1>Global options for pagination helpers</h1>
+<p>
+Options for pagination helpers are optional and get their default values
+from the WillPaginate::ViewHelpers.pagination_options hash. You can write
+to this hash to override default options on the global level:
+</p>
+<pre>
+  WillPaginate::ViewHelpers.pagination_options[:prev_label] = 'Previous page'
+</pre>
+<p>
+By putting this into your environment.rb you can easily translate link
+texts to previous and next pages, as well as override some other defaults
+to your liking.
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000009">will_paginate</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000009" class="method-detail">
+        <a name="M000009"></a>
+
+        <div class="method-heading">
+          <a href="#M000009" class="method-signature">
+          <span class="method-name">will_paginate</span><span class="method-args">(entries = @entries, options = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Renders Digg-style pagination. (We know you wanna!) Returns nil if there is
+only one page in total (can&#8216;t paginate that).
+</p>
+<p>
+Options for <a href="ViewHelpers.html#M000009">will_paginate</a> view
+helper:
+</p>
+<pre>
+  class:        CSS class name for the generated DIV (default &quot;pagination&quot;)
+  prev_label:   default '&amp;laquo; Previous',
+  next_label:   default 'Next &amp;raquo;',
+  inner_window: how many links are shown around the current page, defaults to 4
+  outer_window: how many links are around the first and the last page, defaults to 1
+  separator:    string separator for page HTML elements, default &quot; &quot; (single space)
+  param_name:   parameter name for page number in URLs, defaults to &quot;page&quot;
+</pre>
+<p>
+All extra options are passed to the generated container DIV, so eventually
+they become its HTML attributes.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000009-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000009-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/will_paginate/lib/will_paginate/view_helpers.rb, line 42</span>
+42:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">will_paginate</span>(<span class="ruby-identifier">entries</span> = <span class="ruby-ivar">@entries</span>, <span class="ruby-identifier">options</span> = {})
+43:       <span class="ruby-identifier">total_pages</span> = 
+44: 
+45:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">entries</span>.<span class="ruby-identifier">page_count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
+46:         <span class="ruby-identifier">renderer</span> = <span class="ruby-constant">WillPaginate</span><span class="ruby-operator">::</span><span class="ruby-constant">LinkRenderer</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">entries</span>, <span class="ruby-identifier">options</span>, <span class="ruby-keyword kw">self</span>
+47:         <span class="ruby-identifier">links</span> = <span class="ruby-identifier">renderer</span>.<span class="ruby-identifier">items</span>
+48:         
+49:         <span class="ruby-identifier">content_tag</span> <span class="ruby-identifier">:div</span>, <span class="ruby-identifier">links</span>, <span class="ruby-identifier">renderer</span>.<span class="ruby-identifier">html_options</span>
+50:       <span class="ruby-keyword kw">end</span>
+51:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

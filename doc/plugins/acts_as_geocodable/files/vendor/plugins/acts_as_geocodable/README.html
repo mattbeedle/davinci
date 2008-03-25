@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: README</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>README</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>vendor/plugins/acts_as_geocodable/README
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Sun Dec 09 10:51:18 +0000 2007</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h1>acts_as_geocodable</h1>
+<p>
+acts_as_geocodable is a plugin to help build geo-aware applications. It
+automatically geocodes your models when they are saved, giving you the
+ability to search by location and calculate distances between records.
+</p>
+<h2>Usage</h2>
+<pre>
+  event = Event.create :street =&gt; &quot;777 NE Martin Luther King, Jr. Blvd.&quot;,
+    :locality =&gt; &quot;Portland&quot;, :region =&gt; &quot;Oregon&quot;, :postal_code =&gt; 97232
+
+  event.geocode.latitude                                #=&gt; 45.529100000000
+  event.geocode.longitude                               #=&gt; -122.644200000000
+
+  event.distance_to &quot;49423&quot;                             #=&gt; 1807.66560483205
+
+  Event.find(:all, :within =&gt; 50, :origin =&gt; &quot;97232&quot;)
+
+  Event.find(:nearest, :origin =&gt; &quot;Portland, OR&quot;)
+</pre>
+<h2>Upgrading</h2>
+<p>
+If you&#8216;re upgrading from a previous version of this plugin, note that
+:city has been renamed to :locality to be consistent with Graticule 0.2.
+Create a migration that has:
+</p>
+<pre>
+  rename_column :geocodes, :city, :locality
+</pre>
+<p>
+Also remember to change your mapping in your geocodable classes to use the
+:locality key instead of :city:
+</p>
+<p>
+class Event &lt; ActiveRecord::Base
+</p>
+<pre>
+        acts_as_geocodable :address =&gt; {:street =&gt; :address1, :locality =&gt; :city,
+          :region =&gt; :state, :postal_code =&gt; :zip}
+</pre>
+<p>
+end
+</p>
+<h2>Installation</h2>
+<p>
+<a href="../../../../http:/rubyforge.org/projects/graticule">Graticule</a>
+is used for all the heavy lifting.
+</p>
+<pre>
+  gem install graticule --include-dependencies
+</pre>
+<p>
+Install the plugin
+</p>
+<pre>
+  script/plugin install -x http://source.collectiveidea.com/public/rails/plugins/acts_as_geocodable/
+</pre>
+<h2>Configuration</h2>
+<p>
+Create the required tables
+</p>
+<pre>
+  script/generate geocodable_migration add_geocodable_tables
+  rake db:migrate
+</pre>
+<p>
+Set the default geocoder in your environment.rb file.
+</p>
+<pre>
+  Geocode.geocoder = Graticule.service(:yahoo).new 'your_api_key'
+</pre>
+<p>
+Then, in each model you want to make geocodable, add acts_as_geocodable.
+</p>
+<pre>
+  class Event &lt; ActiveRecord::Base
+        acts_as_geocodable
+  end
+</pre>
+<p>
+The only requirement is that your model must have address fields. By
+default, acts_as_geocodable looks for attributes called <tt>street</tt>,
+<tt>locality</tt>, <tt>region</tt>, <tt>postal_code</tt>, and
+<tt>country</tt>. To change these, you can provide a mapping in the
+<tt>:address</tt> option:
+</p>
+<pre>
+  class Event &lt; ActiveRecord::Base
+        acts_as_geocodable :address =&gt; {:street =&gt; :address1, :locality =&gt; :city, :region =&gt; :state, :postal_code =&gt; :zip}
+  end
+</pre>
+<p>
+If that doesn&#8216;t meet your needs, simply override the default
+<tt>to_location</tt> method in your model, and return a Graticule::Location
+with those attributes set.
+</p>
+<p>
+acts_as_geocodable can also update your address fields with the data
+returned from the geocoding service:
+</p>
+<pre>
+  class Event &lt; ActiveRecord::Base
+        acts_as_geocodable :normalize_address =&gt; true
+  end
+</pre>
+<h2>IP-based <a href="../../../../classes/Geocoding.html">Geocoding</a></h2>
+<p>
+acts_as_geocodable adds a remote_location method in your controllers that
+uses <a href="http://hostip.info">hostip.info</a> to guess remote users
+location based on their IP address.
+</p>
+<pre>
+  def index
+    @nearest = Store.find(:nearest, :origin =&gt; remote_location) if remote_location
+    @stores = Store.find(:all)
+  end
+</pre>
+<p>
+Keep in mind that IP-based geocoding is not always accurate, and often will
+not return any results.
+</p>
+<h2>Development</h2>
+<p>
+The source code is available at:
+</p>
+<pre>
+  http://source.collectiveidea.com/public/rails/plugins/acts_as_geocodable/
+</pre>
+<p>
+Patches and suggestions are welcome!
+</p>
+<h2>To Do</h2>
+<ul>
+<li>Documentation!!!
+
+</li>
+<li>configurable formulas
+
+</li>
+</ul>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

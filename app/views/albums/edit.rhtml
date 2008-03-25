@@ -1,0 +1,9 @@
+<div class="yui-g">
+    <% form_for :album, @album, :url => user_album_path(@user, @album), :html => { :method => :put } do |f| %>
+    <%= render :partial => 'form', :locals => { :f => f } %>
+    <br/>
+    <%= render :partial => 'edit_form', :locals => { :f => f } %>
+    <br/>
+    <%= submit_tag 'Update' %>
+    <% end %>
+</div>

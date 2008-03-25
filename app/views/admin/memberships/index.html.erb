@@ -1,0 +1,41 @@
+<div class="yui-g">
+  <div id="awaiting_approval">
+    <h2>Members Awaiting Approval</h2>
+    <% if @members_awaiting_approval.length > 0 %>
+      <% form_tag admin_user_group_memberships_path(@user_group), :method => :post do %>
+        <fieldset>
+          <% @members_awaiting_approval.each do |member| %>
+            <%= link_to member.login, user_path(member) %>
+            <label>
+              Yes <%= radio_button :approval_users, member.id, :yes, :checked => true %>
+            </label>
+            <label>
+              No <%= radio_button :approval_users, member.id, :no %>
+            </label>
+          <% end %>
+        </fieldset><br/>
+        <%= submit_tag :approve %>
+      <% end %>
+    <% else %>
+      <p>There are no members awaiting approval.</p>
+    <% end %>
+  </div>
+  <div id="members">
+    <h2>Ban Group Members</h2>
+    <% if @approved_members.length > 0 %>
+      <% form_for admin_user_group_memberships_path(@user_group), :method => :post do %>
+        <fieldset>
+          <% @approved_members.each do |member| %>
+            <label>
+              <%= link_to member.login, user_path(member) %>
+              <%= check_box :ban_users, member.id %>
+            </label>&nbsp;
+          <% end %>
+        </fieldset><br/>
+        <%= submit_tag :ban %>
+      <% end %>
+    <% else %>
+      <p>There are no members in this group at present.</p>
+    <% end %>
+  </div>
+</div>

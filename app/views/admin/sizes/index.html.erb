@@ -1,0 +1,12 @@
+<div class="yui-g">
+  <h1>Sizes Admin</h1>
+  <div id="sizes">
+    <%= link_to 'New size', new_admin_size_path %>
+    <% @sizes.each do |size| %>
+      <div>
+        <%= size.name %>
+        <%= link_to 'edit', edit_admin_size_path(size) %>
+        <%= link_to 'delete', admin_size_path(size), :method => :delete, :confirm => 'Are you sure?' %>
+      </div>
+    <% end %>
+</div>

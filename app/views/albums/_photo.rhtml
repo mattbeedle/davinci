@@ -1,0 +1,2 @@
+<%= link_to image_tag(user_album_photo_path(:user_id => photo.album.user, :album_id => photo.album, :id => photo,
+:size => 'thumbnail') + '.jpg', :border => 0), user_album_photo_path(photo.album.user, photo.album, photo) %>

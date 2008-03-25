@@ -1,0 +1,8 @@
+<div class="yui-g">
+  <div id="order">
+    <h1>Order Summary</h1>
+    <%= render :partial => 'orders/summary', :locals => { :order => @order } %>
+    <%= link_to 'Place Order', confirm_order_cart_path, :method => :post %> or
+    <%= link_to 'cancel', cart_path, :method => :delete, :confirm => 'Are you sure?' %>
+  </div>
+</div>

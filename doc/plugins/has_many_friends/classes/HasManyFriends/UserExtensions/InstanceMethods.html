@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: HasManyFriends::UserExtensions::InstanceMethods</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">HasManyFriends::UserExtensions::InstanceMethods</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/vendor/plugins/has_many_friends/lib/has_many_friends_rb.html">
+                vendor/plugins/has_many_friends/lib/has_many_friends.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000014">accept_friendship_with</a>&nbsp;&nbsp;
+      <a href="#M000016">become_friends_with</a>&nbsp;&nbsp;
+      <a href="#M000015">delete_friendship_with</a>&nbsp;&nbsp;
+      <a href="#M000005">friends</a>&nbsp;&nbsp;
+      <a href="#M000009">friendship</a>&nbsp;&nbsp;
+      <a href="#M000012">is_friends_or_pending_with?</a>&nbsp;&nbsp;
+      <a href="#M000010">is_friends_with?</a>&nbsp;&nbsp;
+      <a href="#M000011">is_pending_friends_with?</a>&nbsp;&nbsp;
+      <a href="#M000006">online_friends</a>&nbsp;&nbsp;
+      <a href="#M000007">pending_friends</a>&nbsp;&nbsp;
+      <a href="#M000008">pending_or_accepted_friends</a>&nbsp;&nbsp;
+      <a href="#M000013">request_friendship_with</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000014" class="method-detail">
+        <a name="M000014"></a>
+
+        <div class="method-heading">
+          <a href="#M000014" class="method-signature">
+          <span class="method-name">accept_friendship_with</span><span class="method-args">(friend)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Accepts a user object and updates an existing <a
+href="InstanceMethods.html#M000009">friendship</a> to be accepted.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000014-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000014-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/has_many_friends/lib/has_many_friends.rb, line 108</span>
+108:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">accept_friendship_with</span>(<span class="ruby-identifier">friend</span>)
+109:         <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">friendship</span>(<span class="ruby-identifier">friend</span>).<span class="ruby-identifier">update_attribute</span>(<span class="ruby-identifier">:accepted_at</span>, <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>)
+110:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000016" class="method-detail">
+        <a name="M000016"></a>
+
+        <div class="method-heading">
+          <a href="#M000016" class="method-signature">
+          <span class="method-name">become_friends_with</span><span class="method-args">(friend)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Accepts a user object and creates a <a
+href="InstanceMethods.html#M000009">friendship</a> between both users. This
+method bypasses the request stage and makes both users <a
+href="InstanceMethods.html#M000005">friends</a> without needing to be
+accepted.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000016-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000016-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/has_many_friends/lib/has_many_friends.rb, line 121</span>
+121:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">become_friends_with</span>(<span class="ruby-identifier">friend</span>)
+122:         <span class="ruby-keyword kw">unless</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">is_friends_with?</span>(<span class="ruby-identifier">friend</span>)
+123:           <span class="ruby-keyword kw">unless</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">is_pending_friends_with?</span>(<span class="ruby-identifier">friend</span>)
+124:             <span class="ruby-constant">Friendship</span>.<span class="ruby-identifier">create!</span>(<span class="ruby-identifier">:friendshipped_by_me</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">self</span>, <span class="ruby-identifier">:friendshipped_for_me</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">friend</span>, <span class="ruby-identifier">:accepted_at</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>)
+125:           <span class="ruby-keyword kw">else</span>
+126:             <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">friendship</span>(<span class="ruby-identifier">friend</span>).<span class="ruby-identifier">update_attribute</span>(<span class="ruby-identifier">:accepted_at</span>, <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>)
+127:           <span class="ruby-keyword kw">end</span>
+128:         <span class="ruby-keyword kw">else</span>
+129:           <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">friendship</span>(<span class="ruby-identifier">friend</span>)
+130:         <span class="ruby-keyword kw">end</span>
+131:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000015" class="method-detail">
+        <a name="M000015"></a>
+
+        <div class="method-heading">
+          <a href="#M000015" class="method-signature">
+          <span class="method-name">delete_friendship_with</span><span class="method-args">(friend)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Accepts a user object and deletes a <a
+href="InstanceMethods.html#M000009">friendship</a> between both users.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000015-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000015-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/has_many_friends/lib/has_many_friends.rb, line 114</span>
+114:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">delete_friendship_with</span>(<span class="ruby-identifier">friend</span>)
+115:         <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">friendship</span>(<span class="ruby-identifier">friend</span>).<span class="ruby-identifier">destroy</span> <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">is_friends_or_pending_with?</span>(<span class="ruby-identifier">friend</span>)
+116:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000005" class="method-detail">
+        <a name="M000005"></a>
+
+        <div class="method-heading">
+          <a href="#M000005" class="method-signature">
+          <span class="method-name">friends</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns a list of all of a users accepted <a
+href="InstanceMethods.html#M000005">friends</a>.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000005-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000005-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/has_many_friends/lib/has_many_friends.rb, line 54</span>
+54:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">friends</span>
+55:         <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">friends_for_me</span> <span class="ruby-operator">+</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">friends_by_me</span>
+56:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000009" class="method-detail">
+        <a name="M000009"></a>
+
+        <div class="method-heading">
+          <a href="#M000009" class="method-signature">
+          <span class="method-name">friendship</span><span class="method-args">(friend)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Accepts a user object and returns the <a
+href="InstanceMethods.html#M000009">friendship</a> object associated with
+both users.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000009-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000009-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/has_many_friends/lib/has_many_friends.rb, line 77</span>
+77:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">friendship</span>(<span class="ruby-identifier">friend</span>)
+78:         <span class="ruby-constant">Friendship</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">:first</span>, <span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">'(user_id = ? AND friend_id = ?) OR (friend_id = ? AND user_id = ?)'</span>, <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">id</span>, <span class="ruby-identifier">friend</span>.<span class="ruby-identifier">id</span>, <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">id</span>, <span class="ruby-identifier">friend</span>.<span class="ruby-identifier">id</span>])
+79:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000012" class="method-detail">
+        <a name="M000012"></a>
+
+        <div class="method-heading">
+          <a href="#M000012" class="method-signature">
+          <span class="method-name">is_friends_or_pending_with?</span><span class="method-args">(friend)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Accepts a user object and returns true if both users are <a
+href="InstanceMethods.html#M000005">friends</a> regardless of acceptance.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000012-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000012-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/has_many_friends/lib/has_many_friends.rb, line 95</span>
+95:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">is_friends_or_pending_with?</span>(<span class="ruby-identifier">friend</span>)
+96:         <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">pending_or_accepted_friends</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">friend</span>)
+97:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000010" class="method-detail">
+        <a name="M000010"></a>
+
+        <div class="method-heading">
+          <a href="#M000010" class="method-signature">
+          <span class="method-name">is_friends_with?</span><span class="method-args">(friend)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Accepts a user object and returns true if both users are <a
+href="InstanceMethods.html#M000005">friends</a> and the <a
+href="InstanceMethods.html#M000009">friendship</a> has been accepted.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000010-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000010-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/has_many_friends/lib/has_many_friends.rb, line 83</span>
+83:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">is_friends_with?</span>(<span class="ruby-identifier">friend</span>)
+84:         <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">friends</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">friend</span>)
+85:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000011" class="method-detail">
+        <a name="M000011"></a>
+
+        <div class="method-heading">
+          <a href="#M000011" class="method-signature">
+          <span class="method-name">is_pending_friends_with?</span><span class="method-args">(friend)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Accepts a user object and returns true if both users are <a
+href="InstanceMethods.html#M000005">friends</a> but the <a
+href="InstanceMethods.html#M000009">friendship</a> hasn&#8216;t been
+accepted yet.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000011-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000011-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/has_many_friends/lib/has_many_friends.rb, line 89</span>
+89:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">is_pending_friends_with?</span>(<span class="ruby-identifier">friend</span>)
+90:         <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">pending_friends</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">friend</span>)
+91:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000006" class="method-detail">
+        <a name="M000006"></a>
+
+        <div class="method-heading">
+          <a href="#M000006" class="method-signature">
+          <span class="method-name">online_friends</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Return a list of all <a href="InstanceMethods.html#M000005">friends</a> who
+are currently online. This won&#8216;t return anything unless you passed
+the :online_method option to has_many_friends.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000006-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000006-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/has_many_friends/lib/has_many_friends.rb, line 61</span>
+61:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">online_friends</span>
+62:         <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">friends_by_me</span>.<span class="ruby-identifier">online</span> <span class="ruby-operator">+</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">friends_for_me</span>.<span class="ruby-identifier">online</span>
+63:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000007" class="method-detail">
+        <a name="M000007"></a>
+
+        <div class="method-heading">
+          <a href="#M000007" class="method-signature">
+          <span class="method-name">pending_friends</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns a list of all pending friendships.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000007-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000007-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/has_many_friends/lib/has_many_friends.rb, line 66</span>
+66:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">pending_friends</span>
+67:         <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">pending_friends_by_me</span> <span class="ruby-operator">+</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">pending_friends_for_me</span>
+68:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000008" class="method-detail">
+        <a name="M000008"></a>
+
+        <div class="method-heading">
+          <a href="#M000008" class="method-signature">
+          <span class="method-name">pending_or_accepted_friends</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns a full list of all pending and accepted <a
+href="InstanceMethods.html#M000005">friends</a>.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000008-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000008-source">
+<pre>
+    <span class="ruby-comment cmt"># File vendor/plugins/has_many_friends/lib/has_many_friends.rb, line 71</span>
+71:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">pending_or_accepted_friends</span>
+72:         <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">friends</span> <span class="ruby-operator">+</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">pending_friends</span>
+73:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000013" class="method-detail">
+        <a name="M000013"></a>
+
+        <div class="method-heading">
+          <a href="#M000013" class="method-signature">
+          <span class="method-name">request_friendship_with</span><span class="method-args">(friend)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Accepts a user object and creates a <a
+href="InstanceMethods.html#M000009">friendship</a> request between both
+users.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000013-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000013-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/has_many_friends/lib/has_many_friends.rb, line 101</span>
+101:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">request_friendship_with</span>(<span class="ruby-identifier">friend</span>)
+102:         <span class="ruby-constant">Friendship</span>.<span class="ruby-identifier">create!</span>(<span class="ruby-identifier">:friendshipped_by_me</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">self</span>, 
+103:                            <span class="ruby-identifier">:friendshipped_for_me</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">friend</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">is_friends_or_pending_with?</span>(<span class="ruby-identifier">friend</span>) <span class="ruby-operator">||</span> <span class="ruby-keyword kw">self</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">friend</span>
+104:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

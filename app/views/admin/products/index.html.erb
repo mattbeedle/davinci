@@ -1,0 +1,7 @@
+<div class="yui-g">
+  <h1>Products Admin</h1>
+  <%= link_to 'New product', new_admin_product_path %>
+  <div id="products">
+    <%= render :partial => 'admin/products/product', :collection => @products %>
+  </div>
+</div>

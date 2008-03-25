@@ -1,0 +1,2 @@
+module HomepageSettingsHelper
+end

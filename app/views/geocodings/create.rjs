@@ -1,0 +1,4 @@
+page << @map.remove_all_markers
+for i in 0..@markers.length-1
+  page << @map.add_marker(@markers[i])
+end

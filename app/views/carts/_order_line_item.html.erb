@@ -1,0 +1,5 @@
+<div class="order_line_item">
+  <%= render :partial => 'photos/photo', :locals => { :photo => Photo.find(order_line_item.photo_id),
+    :size => 'thumbnail', :width => 100, :height => 100 } %><br/>
+  <%= order_line_item.quantity %>x <%= order_line_item.item.name %>
+</div>

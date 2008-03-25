@@ -1,0 +1,5 @@
+<fieldset>
+  <%= membership.user.login %>
+  <label>Approve <%= radio_button :approve, membership.user.id, :yes, :checked => membership.approved? %></label>
+  <label>Ban <%= radio_button :approve, membership.user.id, :no, :checked => membership.approved? %></label>
+</fieldset>

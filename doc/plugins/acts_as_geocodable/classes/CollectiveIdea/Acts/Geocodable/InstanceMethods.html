@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: CollectiveIdea::Acts::Geocodable::InstanceMethods</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">CollectiveIdea::Acts::Geocodable::InstanceMethods</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../../files/vendor/plugins/acts_as_geocodable/lib/acts_as_geocodable_rb.html">
+                vendor/plugins/acts_as_geocodable/lib/acts_as_geocodable.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000022">attach_geocode</a>&nbsp;&nbsp;
+      <a href="#M000021">distance_to</a>&nbsp;&nbsp;
+      <a href="#M000024">geo_attribute</a>&nbsp;&nbsp;
+      <a href="#M000019">geocode</a>&nbsp;&nbsp;
+      <a href="#M000020">to_location</a>&nbsp;&nbsp;
+      <a href="#M000023">update_address</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000021" class="method-detail">
+        <a name="M000021"></a>
+
+        <div class="method-heading">
+          <a href="#M000021" class="method-signature">
+          <span class="method-name">distance_to</span><span class="method-args">(destination, options = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get the distance to the given destination. The destination can be an
+acts_as_geocodable model, a <a href="../../../Geocode.html">Geocode</a>, or
+a string
+</p>
+<pre>
+  myhome.distance_to &quot;Chicago, IL&quot;
+  myhome.distance_to &quot;49423&quot;
+  myhome.distance_to other_model
+</pre>
+<h2>Options</h2>
+<ul>
+<li><tt>:units</tt>: <tt>:miles</tt> or <tt>:kilometers</tt>
+
+</li>
+<li><tt>:formula</tt>: The formula to use to calculate the distance. This can
+be any formula supported by Graticule. The default is <tt>:haversine</tt>.
+
+</li>
+</ul>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000021-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000021-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/acts_as_geocodable/lib/acts_as_geocodable.rb, line 195</span>
+195:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">distance_to</span>(<span class="ruby-identifier">destination</span>, <span class="ruby-identifier">options</span> = {})
+196:           <span class="ruby-identifier">options</span> = {
+197:             <span class="ruby-identifier">:units</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">acts_as_geocodable_options</span>[<span class="ruby-identifier">:units</span>],
+198:             <span class="ruby-identifier">:formula</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:haversine</span>
+199:           }.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">options</span>)
+200:           
+201:           <span class="ruby-identifier">geocode</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">location_to_geocode</span>(<span class="ruby-identifier">destination</span>)
+202:           <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">geocode</span>.<span class="ruby-identifier">distance_to</span>(<span class="ruby-identifier">geocode</span>, <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:units</span>], <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:formula</span>])
+203:         <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000019" class="method-detail">
+        <a name="M000019"></a>
+
+        <div class="method-heading">
+          <a href="#M000019" class="method-signature">
+          <span class="method-name">geocode</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get the <a href="InstanceMethods.html#M000019">geocode</a> for this model
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000019-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000019-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/acts_as_geocodable/lib/acts_as_geocodable.rb, line 170</span>
+170:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">geocode</span>
+171:           <span class="ruby-identifier">geocoding</span>.<span class="ruby-identifier">geocode</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">geocoding</span>
+172:         <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000020" class="method-detail">
+        <a name="M000020"></a>
+
+        <div class="method-heading">
+          <a href="#M000020" class="method-signature">
+          <span class="method-name">to_location</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Create a Graticule::Location
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000020-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000020-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/acts_as_geocodable/lib/acts_as_geocodable.rb, line 175</span>
+175:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_location</span>
+176:           <span class="ruby-identifier">returning</span> <span class="ruby-constant">Graticule</span><span class="ruby-operator">::</span><span class="ruby-constant">Location</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">location</span><span class="ruby-operator">|</span>
+177:             [<span class="ruby-identifier">:street</span>, <span class="ruby-identifier">:locality</span>, <span class="ruby-identifier">:region</span>, <span class="ruby-identifier">:postal_code</span>, <span class="ruby-identifier">:country</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">attr</span><span class="ruby-operator">|</span>
+178:               <span class="ruby-identifier">location</span>.<span class="ruby-identifier">send</span> <span class="ruby-node">&quot;#{attr}=&quot;</span>, <span class="ruby-identifier">geo_attribute</span>(<span class="ruby-identifier">attr</span>)
+179:             <span class="ruby-keyword kw">end</span>
+180:           <span class="ruby-keyword kw">end</span>
+181:         <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Protected Instance methods</h3>
+
+      <div id="method-M000022" class="method-detail">
+        <a name="M000022"></a>
+
+        <div class="method-heading">
+          <a href="#M000022" class="method-signature">
+          <span class="method-name">attach_geocode</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Perform the geocoding
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000022-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000022-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/acts_as_geocodable/lib/acts_as_geocodable.rb, line 208</span>
+208:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">attach_geocode</span>
+209:           <span class="ruby-identifier">geocode</span> = <span class="ruby-constant">Geocode</span>.<span class="ruby-identifier">find_or_create_by_location</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">to_location</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">to_location</span>.<span class="ruby-identifier">attributes</span>.<span class="ruby-identifier">all?</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">:blank?</span>)
+210:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">geocode</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">geocode</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">geocode</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">geocode</span>.<span class="ruby-identifier">new_record?</span>
+211:             <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">geocoding</span>.<span class="ruby-identifier">destroy</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">geocoding</span>.<span class="ruby-identifier">blank?</span>
+212:             <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">geocode</span>
+213:               <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">geocoding</span> = <span class="ruby-constant">Geocoding</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">:geocode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">geocode</span>
+214:               <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">update_address</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">acts_as_geocodable_options</span>[<span class="ruby-identifier">:normalize_address</span>]
+215:             <span class="ruby-keyword kw">end</span>
+216:           <span class="ruby-keyword kw">end</span>
+217:         <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">Graticule</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+218:           <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">warn</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">message</span>
+219:         <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000024" class="method-detail">
+        <a name="M000024"></a>
+
+        <div class="method-heading">
+          <a href="#M000024" class="method-signature">
+          <span class="method-name">geo_attribute</span><span class="method-args">(attr_key)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000024-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000024-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/acts_as_geocodable/lib/acts_as_geocodable.rb, line 240</span>
+240:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">geo_attribute</span>(<span class="ruby-identifier">attr_key</span>)
+241:           <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">acts_as_geocodable_options</span>[<span class="ruby-identifier">:address</span>].<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Symbol</span>
+242:             <span class="ruby-identifier">attr_name</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">acts_as_geocodable_options</span>[<span class="ruby-identifier">:address</span>]
+243:             <span class="ruby-identifier">attr_key</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">:street</span> <span class="ruby-operator">?</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">attr_name</span>) <span class="ruby-operator">:</span> <span class="ruby-keyword kw">nil</span>
+244:           <span class="ruby-keyword kw">else</span>
+245:             <span class="ruby-identifier">attr_name</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">acts_as_geocodable_options</span>[<span class="ruby-identifier">:address</span>][<span class="ruby-identifier">attr_key</span>]
+246:             <span class="ruby-identifier">attr_name</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">attr_name</span>) <span class="ruby-operator">?</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">attr_name</span>) <span class="ruby-operator">:</span> <span class="ruby-keyword kw">nil</span>
+247:           <span class="ruby-keyword kw">end</span>
+248:         <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000023" class="method-detail">
+        <a name="M000023"></a>
+
+        <div class="method-heading">
+          <a href="#M000023" class="method-signature">
+          <span class="method-name">update_address</span><span class="method-args">(force = false)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000023-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000023-source">
+<pre>
+     <span class="ruby-comment cmt"># File vendor/plugins/acts_as_geocodable/lib/acts_as_geocodable.rb, line 221</span>
+221:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">update_address</span>(<span class="ruby-identifier">force</span> = <span class="ruby-keyword kw">false</span>)
+222:           <span class="ruby-keyword kw">unless</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">geocode</span>.<span class="ruby-identifier">blank?</span>
+223:             <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">acts_as_geocodable_options</span>[<span class="ruby-identifier">:address</span>].<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Symbol</span>
+224:               <span class="ruby-identifier">method</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">acts_as_geocodable_options</span>[<span class="ruby-identifier">:address</span>]
+225:               <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-node">&quot;#{method}=&quot;</span>) <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">method</span>).<span class="ruby-identifier">blank?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">force</span>)
+226:                 <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">send</span> <span class="ruby-node">&quot;#{method}=&quot;</span>, <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">geocode</span>.<span class="ruby-identifier">to_location</span>.<span class="ruby-identifier">to_s</span>
+227:               <span class="ruby-keyword kw">end</span>
+228:             <span class="ruby-keyword kw">else</span>
+229:               <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">acts_as_geocodable_options</span>[<span class="ruby-identifier">:address</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">attribute</span>,<span class="ruby-identifier">method</span><span class="ruby-operator">|</span>
+230:                 <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-node">&quot;#{method}=&quot;</span>) <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">method</span>).<span class="ruby-identifier">blank?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">force</span>)
+231:                   <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">send</span> <span class="ruby-node">&quot;#{method}=&quot;</span>, <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">geocode</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">attribute</span>)
+232:                 <span class="ruby-keyword kw">end</span>
+233:               <span class="ruby-keyword kw">end</span>
+234:             <span class="ruby-keyword kw">end</span>
+235:             
+236:             <span class="ruby-identifier">update_without_callbacks</span>
+237:           <span class="ruby-keyword kw">end</span>
+238:         <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>
