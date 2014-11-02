@@ -1,0 +1,6 @@
+Making this repository public as a cautionary tale. Be careful with mocking and stubbing. Good example here:
+
+https://github.com/mattbeedle/davinci/blob/master/spec/controllers/albums_controller_spec.rb#L165-L178
+
+Davinci was a photo site side project I was working on back in 2008 when I was really getting into Rails in a big way.
+I was going to by vin.ci, host the site at http://da.vin.ci sell to google and live on an island for the rest of my life :)
